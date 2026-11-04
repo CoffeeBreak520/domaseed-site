@@ -12,14 +12,14 @@
 | GEO-001 | 2026-11-04 | 按已授权的桌面开启验收修正共享60秒计时后复测：只读GEO-001，保留全部历史证据。 |
 
 ## GEO-001
-状态: TODO
+状态: DONE
 目标: 站点体检（只读站点，修复建议另存草稿）。
 验收标准:
 - 为实际静态站点构建本地预览副本，检查 HTTP 返回与内部失效链接，外部链接只读检查并区分网络失败。
 - 检查 title、meta description、canonical、Organization 及合适的游戏/教育 schema.org JSON-LD；不强制重复添加不合适的类型。
 - 核对中英文页面对应，缺少语言版本如实记录；检查完成不等于全部问题解决。
 - 运行 `powershell -NoProfile -File night-shift/audit-site.ps1` 取得证据，核对 findings，必要时仅在 drafts 写建议；报告附实际文件证据。
-结果: Explicit founder-authorized desktop-open acceptance replay; first successful audit evidence retained.
+结果: DONE；2026-11-04 执行 `powershell -NoProfile -File night-shift/audit-site.ps1`，退出码 0；本地静态预览 HTTP 200（8937 bytes），title、description、canonical 存在，JSON-LD 可解析并含 Organization、VideoGame、FAQPage；未发现内部失效链接。外部 canonical 请求失败，记为未验证；源码快照缺少中文页，无法核对语言对应。审计完成不代表问题已解决；证据：night-shift/evidence/20261104-111510-GEO-001-site-audit.json。
 
 ## GEO-002
 状态: TODO
