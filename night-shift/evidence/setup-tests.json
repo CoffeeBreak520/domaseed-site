@@ -1,12 +1,15 @@
 {
-    "at":  "2026-11-04T01:33:40.1563805Z",
-    "passed":  17,
+    "at":  "2026-11-04T02:59:31.9987996Z",
+    "passed":  20,
     "checks":  [
                    "PowerShell AST: audit-site.ps1: ",
+                   "PowerShell AST: DesktopPreflight.ps1: ",
                    "PowerShell AST: install-task.ps1: ",
                    "PowerShell AST: NightShift.Common.ps1: ",
                    "PowerShell AST: retry-blocked-task.ps1: ",
                    "PowerShell AST: run-night-shift.ps1: ",
+                   "PowerShell AST: ValidateWorkerResult.ps1: ",
+                   "PowerShell AST: desktop-preflight-tests.ps1: ",
                    "PowerShell AST: run-tests.ps1: ",
                    "Only first real TODO parsed; prose ignored",
                    "Status update preserves founder decisions and other tasks",

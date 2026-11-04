@@ -1,0 +1,20 @@
+{
+    "passed":  13,
+    "scope":  "No real application was terminated by these regression tests. Live desktop trial is separate.",
+    "checks":  [
+                   "Actual package root is eligible",
+                   "Package prefix collision is excluded",
+                   "Local CLI is excluded",
+                   "Sandbox service is excluded",
+                   "Verified Swift runtime sidecar is eligible",
+                   "Same-name unrelated process is excluded",
+                   "Unlocked file metadata probe passes",
+                   "Actual exclusive file lock is detected as Windows error 32",
+                   "Locked file cannot report released",
+                   "Released file probe passes after handle is closed",
+                   "Probe changes neither file bytes nor ACL",
+                   "Primary evidence plus supporting document is accepted",
+                   "Supporting document alone cannot establish DONE"
+               ],
+    "at":  "2026-11-04T02:59:32.8055037Z"
+}

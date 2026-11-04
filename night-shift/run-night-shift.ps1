@@ -11,6 +11,7 @@ $ErrorActionPreference='Stop'
 if (-not $RepoPath) { $RepoPath = Split-Path -Parent $PSScriptRoot }
 . "$PSScriptRoot\NightShift.Common.ps1"
 . "$PSScriptRoot\ValidateWorkerResult.ps1"
+. "$PSScriptRoot\DesktopPreflight.ps1"
 $started = [datetime]::UtcNow
 $deadline = $started.AddSeconds($NightTimeoutSeconds)
 $day = [TimeZoneInfo]::ConvertTimeFromUtc($started,[TimeZoneInfo]::FindSystemTimeZoneById('China Standard Time')).ToString('yyyyMMdd')
@@ -18,7 +19,7 @@ $branch = "night/geo-$day"
 $reportRel = "night-shift/reports/morning-$day.md"
 $control = [IO.Path]::GetFullPath($RepoPath)
 $root = $null; $baseline = $null; $lock = $null; $report = $null; $taskId=$null; $queue=$null
-$invoked = $false; $allValid = $true; $remoteVerified = $false; $exitCode=1; $selectedStatus=$null; $unsafe=$false
+$invoked = $false; $allValid = $true; $remoteVerified = $false; $exitCode=1; $selectedStatus=$null; $unsafe=$false; $desktop=$null; $skipForDll=$false
 $receipt = [ordered]@{ date=$day; started=$started.ToString('o'); onlyTask=$OnlyTask; branch=$branch; codexInvoked=$false; remoteVerified=$false; exitCode=1; taskStatus=$null }
 $stateDir = Join-Path $control '.git/night-shift'
 $fallback = Join-Path $control "night-shift/logs/$day"
@@ -80,6 +81,27 @@ try {
     $logDir = Join-Path $root "night-shift/logs/$day/$($started.ToString('HHmmss'))"
     [IO.Directory]::CreateDirectory($logDir) | Out-Null
     Add-Report $report '今晚做了什么' "- 启动：$($started.ToString('o'))；分支 $branch；站点只读；当日基线 $baseline。"
+    # Host preflight occurs before task claim and before any codex exec. Failure preserves TODO.
+    $desktop = Close-CodexDesktop -GraceSeconds 60 -Deadline $deadline.AddSeconds(-180)
+    foreach ($collection in @('initialProcesses','remainingProcesses','lockOwners','dllChecks','initialDllChecks')) {
+        foreach ($entry in @($desktop.$collection)) {
+            if ($entry.PSObject.Properties.Name -contains 'path' -and $entry.path) {
+                $entry.path=$entry.path.Replace($env:USERPROFILE,'%USERPROFILE%')
+            }
+        }
+    }
+    $desktopRel="night-shift/evidence/$day-$($started.ToString('HHmmss'))-desktop-preflight.json"
+    Write-Utf8 (Join-Path $root $desktopRel) ($desktop | ConvertTo-Json -Depth 10)
+    $modeText=if($desktop.method -eq 'force'){'强制'}elseif($desktop.method -eq 'normal'){'正常'}else{'未发现桌面进程'}
+    Add-Report $report '今晚做了什么' "- 桌面预检：起始 $($desktop.started)，结束 $($desktop.finished)；发现应用=$($desktop.initiallyRunning)，已关闭=$($desktop.closedDesktop)，方式=$modeText；DLL释放验证=$($desktop.released)。证据：$desktopRel。"
+    if (-not $desktop.released) {
+        $skipForDll=$true
+        $ownerText=(@($desktop.lockOwners | ForEach-Object { "$($_.name)(PID=$($_.pid))" }) -join ', ')
+        if (-not $ownerText) { $ownerText='未能定位占用进程；探测错误码见证据' }
+        $reason=if($desktop.missingDll){'未找到预期运行时 DLL，无法确认释放状态，未执行任务'}else{'DLL 仍被占用，未执行任务'}
+        Add-Report $report '失败与原因' "- $reason；占用信息：$ownerText；证据：$desktopRel。任务状态保留，未调用 Codex。"
+        throw $reason
+    }
     $queue = Join-Path $root 'night-shift/TASK_QUEUE.md'
     $initialTasks = @(Read-Queue $queue)
     $first = @($initialTasks | Where-Object Status -eq 'TODO' | Select-Object -First 1)
@@ -176,7 +198,7 @@ try {
     $exitCode=1
     $failure=$_.Exception.Message
     Write-Utf8 (Join-Path $fallback 'failure.txt') $failure
-    if (-not $unsafe -and $taskId -and $queue -and (Test-Path $queue)) {
+    if (-not $skipForDll -and -not $unsafe -and $taskId -and $queue -and (Test-Path $queue)) {
         try {
             $current=@((Read-Queue $queue) | Where-Object Id -eq $taskId)[0]
             if ($current.Status -eq 'TODO') {
@@ -197,7 +219,7 @@ try {
     if ($lock) {
         try {
             if (-not $unsafe -and $root -and $baseline -and $report -and $report.StartsWith($root) -and [datetime]::UtcNow -lt $deadline.AddSeconds(-20)) {
-                $snapshot = "| 任务 | 当前状态 |`n|---|---|`n" + (((Read-Queue $queue) | ForEach-Object { "| $($_.Id) | $($_.Status) |" }) -join "`n")
+                $snapshot = "| 任务 | 当前状态 |`n|---|---|`n" + (((Read-Queue (Join-Path $root 'night-shift/TASK_QUEUE.md')) | ForEach-Object { "| $($_.Id) | $($_.Status) |" }) -join "`n")
                 Add-Report $report '今晚做了什么' $snapshot
                 $sha = Commit-Night $root $baseline $branch $deadline
                 Invoke-Git $root @('push','origin',"HEAD:refs/heads/$branch") $deadline | Out-Null
@@ -217,6 +239,9 @@ try {
             }
         }
         if (-not $remoteVerified -and $exitCode -eq 0) { $exitCode=3 }
+        $receipt['desktopPreflight']=$desktop
+        $receipt['launcherSha256']=(Get-FileHash (Join-Path $control 'night-shift/run-night-shift.ps1') -Algorithm SHA256).Hash
+        $receipt['desktopHelperSha256']=(Get-FileHash (Join-Path $control 'night-shift/DesktopPreflight.ps1') -Algorithm SHA256).Hash
         $receipt['codexInvoked']=$invoked
         $receipt['remoteVerified']=$remoteVerified
         $receipt['exitCode']=$exitCode

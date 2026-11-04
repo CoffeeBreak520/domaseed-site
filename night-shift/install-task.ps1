@@ -18,6 +18,16 @@ $r=[IO.File]::ReadAllText($path) | ConvertFrom-Json
 if ($r.onlyTask -ne 'GEO-001' -or -not $r.codexInvoked -or $r.exitCode -ne 0 -or -not $r.remoteVerified -or $r.taskStatus -ne 'DONE') {
     throw 'GEO-001 end-to-end proof has not passed. Nothing installed; inspect last-run.json and morning report.'
 }
+# Both user-requested real trials must pass before this task may be registered.
+$firstPath=Join-Path $RepoPath '.git/night-shift/acceptance-original.json'
+if (-not (Test-Path $firstPath)) { throw 'Original manually-closed desktop trial proof missing. Nothing installed.' }
+$first=[IO.File]::ReadAllText($firstPath) | ConvertFrom-Json
+if ($first.onlyTask -ne 'GEO-001' -or -not $first.codexInvoked -or -not $first.remoteVerified -or $first.exitCode -ne 0 -or $first.taskStatus -ne 'DONE') { throw 'Original-flow trial did not pass.' }
+if (-not ($r.PSObject.Properties.Name -contains 'desktopPreflight') -or -not $r.desktopPreflight -or -not $r.desktopPreflight.initiallyRunning -or -not $r.desktopPreflight.closedDesktop -or -not $r.desktopPreflight.released -or $r.desktopPreflight.method -notin @('normal','force')) {
+    throw 'Real desktop-open shutdown trial has not passed. Nothing installed.'
+}
+if ($r.launcherSha256 -ne (Get-FileHash (Join-Path $PSScriptRoot 'run-night-shift.ps1')).Hash -or $r.desktopHelperSha256 -ne (Get-FileHash (Join-Path $PSScriptRoot 'DesktopPreflight.ps1')).Hash) { throw 'Framework changed since desktop-open proof. Rerun validation.' }
+Invoke-Git $r.worktree @('merge-base','--is-ancestor',$first.remoteSha,$r.remoteSha) | Out-Null
 if (-not (Test-Path $r.reportPath)) { throw 'Verified report no longer exists.' }
 $remote=Invoke-Git $RepoPath @('ls-remote','origin',"refs/heads/$($r.branch)")
 if (($remote -split '\s+')[0] -ne $r.remoteSha) { throw 'Remote branch changed since proof. Reverify before installation.' }
