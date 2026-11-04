@@ -10,6 +10,7 @@ param(
 $ErrorActionPreference='Stop'
 if (-not $RepoPath) { $RepoPath = Split-Path -Parent $PSScriptRoot }
 . "$PSScriptRoot\NightShift.Common.ps1"
+. "$PSScriptRoot\ValidateWorkerResult.ps1"
 $started = [datetime]::UtcNow
 $deadline = $started.AddSeconds($NightTimeoutSeconds)
 $day = [TimeZoneInfo]::ConvertTimeFromUtc($started,[TimeZoneInfo]::FindSystemTimeZoneById('China Standard Time')).ToString('yyyyMMdd')
@@ -147,23 +148,13 @@ try {
         $valid=$true; $issue=''
         try {
             if ($r.ExitCode -ne 0) { throw "Codex process exit $($r.ExitCode); timeout=$($r.TimedOut)." }
-            if (-not (Test-Path $last)) { throw 'Codex did not produce structured final result.' }
-            $answer = [IO.File]::ReadAllText($last) | ConvertFrom-Json
-            if ($answer.task_id -ne $taskId -or $answer.status -ne $after.Status -or $after.Status -eq 'TODO') { throw 'Task did not make valid progress or result disagrees with queue.' }
-            if ($answer.status -eq 'DONE') {
-                if (-not @($answer.evidence).Count) { throw 'DONE has no evidence.' }
-                foreach ($e in $answer.evidence) {
-                    $ep = [IO.Path]::GetFullPath((Join-Path $root $e))
-                    $allowed = [IO.Path]::GetFullPath((Join-Path $root 'night-shift/evidence/'))
-                    if (-not $ep.StartsWith($allowed,[StringComparison]::OrdinalIgnoreCase) -or -not (Test-Path $ep -PathType Leaf)) { throw 'DONE evidence path invalid/missing.' }
-                }
-            }
+            $answer = Read-ValidatedWorkerResult -ResultPath $last -Root $root -TaskId $taskId -QueueStatus $after.Status
         } catch { $valid=$false; $issue=$_.Exception.Message }
         if (-not $valid) {
             $allValid=$false
-            if (($r.Out + $r.Err) -match 'setup refresh had errors') { $issue='Windows sandbox failed before command startup: setup refresh had errors.' }
-            elseif (($r.Out + $r.Err) -match 'read-only filesystem|only filesystem reads') { $issue='Codex effective environment is read-only; workspace-write execution unavailable.' }
-            $evRel="night-shift/evidence/$day-$taskId-launcher-$i.json"
+            if ($r.Err -match 'setup refresh had errors') { $issue='Windows sandbox failed before command startup: setup refresh had errors.' }
+            elseif ($r.Err -match 'read-only filesystem|only filesystem reads') { $issue='Codex effective environment is read-only; workspace-write execution unavailable.' }
+            $evRel="night-shift/evidence/$day-$($started.ToString('HHmmss'))-$taskId-launcher-$i.json"
             Write-Utf8 (Join-Path $root $evRel) (([ordered]@{task=$taskId;at=[datetime]::UtcNow.ToString('o');status='BLOCKED';processExit=$r.ExitCode;timeout=$r.TimedOut;reason=$issue;rawLogs='night-shift/logs (local, ignored)'; verifiedCompletion=$false} | ConvertTo-Json))
             Set-QueueStatus $queue $taskId 'BLOCKED' "$issue Evidence: $evRel"
             Add-Report $report '失败与原因' "- $taskId：$issue；证据：$evRel。没有把本次任务报为完成。"
