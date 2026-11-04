@@ -22,13 +22,13 @@
 结果: DONE；2026-11-04 执行 `powershell -NoProfile -File night-shift/audit-site.ps1`，退出码 0；本地静态预览 HTTP 200（8937 bytes），title、description、canonical 存在，JSON-LD 可解析并含 Organization、VideoGame、FAQPage；未发现内部失效链接。外部 canonical 请求失败，记为未验证；源码快照缺少中文页，无法核对语言对应。审计完成不代表问题已解决；证据：night-shift/evidence/20261104-111510-GEO-001-site-audit.json。
 
 ## GEO-002
-状态: TODO
+状态: BLOCKED
 目标: AI 可见度基线，只记录，不对外发布内容。
 验收标准:
 - 列出 10 个面向约 10–13 岁孩子家长的问题，保存精确问题、引擎、日期、语言/地区、真实回答/引用和 DOMASEED 是否被提及及如何描述。
 - 若无法联网检索或无法取得真实 AI 回答，保留问题清单并标 BLOCKED，明确哪类访问缺失；不得生成模拟基线。
 - 禁止把搜索命中等同于 AI 推荐或引用，禁止用旧基线冒充本次测量。
-结果: 尚未运行。
+结果: BLOCKED；2026-11-04 仅整理10条英文（美国）及简体中文（中国大陆）精确问题。当前会话没有可调用的真实AI回答通道；可用网页检索不等同于AI回答，因此未执行引擎查询、未生成回答/引用/品牌提及结论。待真实AI访问渠道可用后重新测量。证据：night-shift/evidence/20261104-GEO-002-baseline.json。
 
 ## GEO-003
 状态: TODO
