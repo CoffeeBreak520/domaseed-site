@@ -33,8 +33,8 @@ try {
     Invoke-Git $control @('merge','--ff-only','origin/setup/night-shift-v1') $deadline | Out-Null
     # Night worktrees are siblings. The control clone is never switched to main/night.
     $root = Join-Path (Split-Path -Parent $control) "domaseed-geo-night-$day"
-    $localRefs = Invoke-Git $control @('for-each-ref','--format=%(refname:short)','refs/heads/night/geo-') $deadline
-    $remoteRefs = Invoke-Git $control @('for-each-ref','--format=%(refname:short)','refs/remotes/origin/night/geo-') $deadline
+    $localRefs = Invoke-Git $control @('for-each-ref','--format=%(refname:short)','refs/heads/night/geo-*') $deadline
+    $remoteRefs = Invoke-Git $control @('for-each-ref','--format=%(refname:short)','refs/remotes/origin/night/geo-*') $deadline
     $isLocal = @($localRefs -split '\r?\n') -contains $branch
     $isRemote = @($remoteRefs -split '\r?\n') -contains "origin/$branch"
     $newNight = -not ($isLocal -or $isRemote)
