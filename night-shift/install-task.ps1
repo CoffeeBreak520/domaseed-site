@@ -1,6 +1,7 @@
 ﻿[CmdletBinding(SupportsShouldProcess=$true)]
-param([string]$RepoPath=(Split-Path -Parent $PSScriptRoot),[switch]$Uninstall)
+param([string]$RepoPath='',[switch]$Uninstall)
 $ErrorActionPreference='Stop'
+if (-not $RepoPath) { $RepoPath = Split-Path -Parent $PSScriptRoot }
 . "$PSScriptRoot\NightShift.Common.ps1"
 $name='DOMASEED-GEO-NightShift'
 if ($Uninstall) {

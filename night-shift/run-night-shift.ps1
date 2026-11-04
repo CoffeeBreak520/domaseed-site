@@ -1,6 +1,6 @@
 ﻿[CmdletBinding()]
 param(
-    [string]$RepoPath = (Split-Path -Parent $PSScriptRoot),
+    [string]$RepoPath = '',
     [ValidatePattern('^GEO-\d+$')][string]$OnlyTask,
     [ValidateRange(1,5)][int]$MaxIterations=5,
     [ValidateRange(1,2700)][int]$TaskTimeoutSeconds=2700,
@@ -8,6 +8,7 @@ param(
     [string]$Model='gpt-6-luna'
 )
 $ErrorActionPreference='Stop'
+if (-not $RepoPath) { $RepoPath = Split-Path -Parent $PSScriptRoot }
 . "$PSScriptRoot\NightShift.Common.ps1"
 $started = [datetime]::UtcNow
 $deadline = $started.AddSeconds($NightTimeoutSeconds)

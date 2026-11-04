@@ -1,6 +1,7 @@
 ﻿[CmdletBinding()]
-param([string]$RepoPath=(Split-Path -Parent $PSScriptRoot))
+param([string]$RepoPath='')
 $ErrorActionPreference='Stop'
+if (-not $RepoPath) { $RepoPath = Split-Path -Parent $PSScriptRoot }
 . "$PSScriptRoot\NightShift.Common.ps1"
 $RepoPath=[IO.Path]::GetFullPath($RepoPath)
 $stamp=[TimeZoneInfo]::ConvertTimeFromUtc([datetime]::UtcNow,[TimeZoneInfo]::FindSystemTimeZoneById('China Standard Time')).ToString('yyyyMMdd-HHmmss')
