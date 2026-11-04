@@ -26,6 +26,7 @@ if ($first.onlyTask -ne 'GEO-001' -or -not $first.codexInvoked -or -not $first.r
 if (-not ($r.PSObject.Properties.Name -contains 'desktopPreflight') -or -not $r.desktopPreflight -or -not $r.desktopPreflight.initiallyRunning -or -not $r.desktopPreflight.closedDesktop -or -not $r.desktopPreflight.released -or $r.desktopPreflight.method -notin @('normal','force')) {
     throw 'Real desktop-open shutdown trial has not passed. Nothing installed.'
 }
+if (-not ($r.desktopPreflight.PSObject.Properties.Name -contains 'graceElapsedSeconds') -or $r.desktopPreflight.graceElapsedSeconds -gt 60.5) { throw 'Shared 60-second graceful shutdown timing has not been validated.' }
 if ($r.launcherSha256 -ne (Get-FileHash (Join-Path $PSScriptRoot 'run-night-shift.ps1')).Hash -or $r.desktopHelperSha256 -ne (Get-FileHash (Join-Path $PSScriptRoot 'DesktopPreflight.ps1')).Hash) { throw 'Framework changed since desktop-open proof. Rerun validation.' }
 Invoke-Git $r.worktree @('merge-base','--is-ancestor',$first.remoteSha,$r.remoteSha) | Out-Null
 if (-not (Test-Path $r.reportPath)) { throw 'Verified report no longer exists.' }
