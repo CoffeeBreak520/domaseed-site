@@ -7,16 +7,17 @@
 | 任务 ID | 日期 | 决定 |
 |---|---|---|
 | — | — | 待填写 |
+| GEO-001 | 2026-11-04 10:45 | 创始人已手动退出桌面应用，授权按原流程重试 GEO-001。 |
 
 ## GEO-001
-状态: BLOCKED
+状态: TODO
 目标: 站点体检（只读站点，修复建议另存草稿）。
 验收标准:
 - 为实际静态站点构建本地预览副本，检查 HTTP 返回与内部失效链接，外部链接只读检查并区分网络失败。
 - 检查 title、meta description、canonical、Organization 及合适的游戏/教育 schema.org JSON-LD；不强制重复添加不合适的类型。
 - 核对中英文页面对应，缺少语言版本如实记录；检查完成不等于全部问题解决。
 - 运行 `powershell -NoProfile -File night-shift/audit-site.ps1` 取得证据，核对 findings，必要时仅在 drafts 写建议；报告附实际文件证据。
-结果: Windows sandbox failed before command startup: setup refresh had errors. Evidence: night-shift/evidence/20261104-GEO-001-launcher-1.json
+结果: Founder explicitly authorized retry: 创始人已手动退出桌面应用，授权按原流程重试 GEO-001。; earlier evidence retained.
 
 ## GEO-002
 状态: TODO
