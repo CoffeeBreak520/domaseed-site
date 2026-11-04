@@ -8,9 +8,9 @@ public static class GeoDesktopNative {
     [DllImport("kernel32.dll", CharSet=CharSet.Unicode, SetLastError=true)]
     static extern SafeFileHandle CreateFile(string path, uint access, uint share, IntPtr security, uint creation, uint flags, IntPtr template);
     public static int Probe(string path) {
-        // Match the sandbox's metadata permission operation, with exclusive sharing.
-        // Opening WRITE_DAC access does not change the ACL or write any file bytes.
-        using (var h=CreateFile(path,0x80040000,0,IntPtr.Zero,3,0x80,IntPtr.Zero)) {
+        // Detect mapped-image sharing locks as well as ACL handle restrictions.
+        // Requesting read/write/WRITE_DAC access changes neither bytes nor ACLs.
+        using (var h=CreateFile(path,0xC0040000,0,IntPtr.Zero,3,0x80,IntPtr.Zero)) {
             return h.IsInvalid ? Marshal.GetLastWin32Error() : 0;
         }
     }
@@ -88,39 +88,56 @@ function Get-RuntimeDlls([string]$RuntimeRoot) {
 function Test-RuntimeDllRelease([string[]]$Paths) {
     foreach ($p in $Paths) {
         $errorCode=[GeoDesktopNative]::Probe($p)
-        [pscustomobject]@{path=$p;released=($errorCode -eq 0);win32Error=$errorCode;message=if($errorCode){(New-Object ComponentModel.Win32Exception($errorCode)).Message}else{'Exclusive read/metadata-access probe passed; no changes made.'}}
+        [pscustomobject]@{path=$p;released=($errorCode -eq 0);win32Error=$errorCode;message=if($errorCode){(New-Object ComponentModel.Win32Exception($errorCode)).Message}else{'Exclusive read/write-capable metadata handle opened; no bytes or ACLs changed.'}}
     }
+}
+function Get-VerifiedLiveDesktopProcess($Row) {
+    try {
+        $live=Get-Process -Id $Row.pid -ErrorAction Stop
+        $sameStart=[Math]::Abs(($live.StartTime.ToUniversalTime()-[datetime]$Row.created).TotalMilliseconds) -lt 1
+        if ($sameStart -and $live.Path -ieq $Row.path) { return $live }
+    } catch { }
+    return $null
+}
+function Get-KnownLiveDesktop($Rows) {
+    foreach ($row in $Rows) { if (Get-VerifiedLiveDesktopProcess $row) { $row } }
 }
 function Close-CodexDesktop {
     param([ValidateRange(0,60)][int]$GraceSeconds=60,[datetime]$Deadline=[datetime]::MaxValue)
     $start=[datetime]::UtcNow
     $runtime=Join-Path $env:LOCALAPPDATA 'OpenAI/Codex/runtimes/cua_node'
     $packages=@(Get-AppxPackage -Name 'OpenAI.Codex' -ErrorAction Stop | ForEach-Object InstallLocation)
-    $initial=@(Get-DesktopCandidates $packages $runtime)
+    $initial=@(Get-DesktopCandidates $packages $runtime | Sort-Object created)
     $initialDllChecks=@(Test-RuntimeDllRelease @(Get-RuntimeDlls $runtime))
     $actions=New-Object 'Collections.Generic.List[object]'
+    $graceStarted=[datetime]::UtcNow
+    $graceEnd=$graceStarted.AddSeconds($GraceSeconds)
+    if ($Deadline -lt $graceEnd) { $graceEnd=$Deadline }
     foreach ($p in $initial) {
+        if ([datetime]::UtcNow -ge $graceEnd) { break }
         $requested=$false; $message='No main window; waits for application shutdown.'
         try {
-            $current=@(Get-DesktopCandidates $packages $runtime | Where-Object { $_.pid -eq $p.pid -and $_.created -eq $p.created })
-            if ($current.Count) { $requested=(Get-Process -Id $p.pid -ErrorAction Stop).CloseMainWindow() }
+            $live=Get-VerifiedLiveDesktopProcess $p
+            if ($live) { $requested=$live.CloseMainWindow() }
+            if ($requested) { $message='WM_CLOSE requested for main window.' }
         } catch { $message=$_.Exception.Message }
         $actions.Add([pscustomobject]@{pid=$p.pid;name=$p.name;method='normal-request';windowCloseRequested=$requested;at=[datetime]::UtcNow.ToString('o');detail=$message})
     }
-    $graceEnd=[datetime]::UtcNow.AddSeconds($GraceSeconds)
-    if ($Deadline -lt $graceEnd) { $graceEnd=$Deadline }
-    $remaining=@(Get-DesktopCandidates $packages $runtime)
+    $remaining=@(Get-KnownLiveDesktop $initial)
     while ($remaining.Count -and [datetime]::UtcNow -lt $graceEnd) {
-        Start-Sleep -Milliseconds 500
-        $remaining=@(Get-DesktopCandidates $packages $runtime)
+        $ms=[int][Math]::Min(500.0,[Math]::Max(1.0,($graceEnd-[datetime]::UtcNow).TotalMilliseconds))
+        Start-Sleep -Milliseconds $ms
+        $remaining=@(Get-KnownLiveDesktop $initial)
     }
+    $graceFinished=[datetime]::UtcNow
+    $remaining=@(Get-DesktopCandidates $packages $runtime)
     $forced=$false
     # Revalidate current identity immediately before each stop; never kill a whole unrelated process tree.
     for ($round=0;$round -lt 3 -and $remaining.Count -and [datetime]::UtcNow -lt $Deadline;$round++) {
         foreach ($p in $remaining) {
             try {
-                $same=@(Get-DesktopCandidates $packages $runtime | Where-Object { $_.pid -eq $p.pid -and $_.created -eq $p.created })
-                if ($same.Count) {
+                $same=Get-VerifiedLiveDesktopProcess $p
+                if ($same) {
                     Stop-Process -Id $p.pid -Force -ErrorAction Stop
                     $forced=$true
                     $actions.Add([pscustomobject]@{pid=$p.pid;name=$p.name;method='force';at=[datetime]::UtcNow.ToString('o');detail='Still running after shared graceful timeout.'})
@@ -132,6 +149,7 @@ function Close-CodexDesktop {
         Start-Sleep -Milliseconds 500
         $remaining=@(Get-DesktopCandidates $packages $runtime)
     }
+    $remaining=@(Get-DesktopCandidates $packages $runtime)
     $dlls=@(Get-RuntimeDlls $runtime)
     $checks=@(Test-RuntimeDllRelease $dlls)
     $released=($dlls.Count -gt 0 -and @($checks | Where-Object { -not $_.released }).Count -eq 0 -and $remaining.Count -eq 0)
@@ -146,7 +164,7 @@ function Close-CodexDesktop {
     }
     $method=if($forced){'force'}elseif($initial.Count){'normal'}else{'none'}
     return [pscustomobject]@{
-        started=$start.ToString('o');finished=[datetime]::UtcNow.ToString('o');graceSeconds=$GraceSeconds
+        started=$start.ToString('o');finished=[datetime]::UtcNow.ToString('o');graceSeconds=$GraceSeconds;graceStarted=$graceStarted.ToString('o');graceFinished=$graceFinished.ToString('o');graceElapsedSeconds=($graceFinished-$graceStarted).TotalSeconds
         initiallyRunning=($initial.Count -gt 0);initialProcesses=$initial;closedDesktop=($initial.Count -gt 0 -and $remaining.Count -eq 0)
         initialDllChecks=$initialDllChecks;method=$method;actions=@($actions.ToArray());remainingProcesses=$remaining;dllChecks=$checks;released=$released
         lockOwners=$owners;ownerQueryError=$ownerError;missingDll=($dlls.Count -eq 0)

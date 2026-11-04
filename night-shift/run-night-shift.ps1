@@ -249,9 +249,9 @@ try {
         $receipt['reportPath']=$report
         $receipt['worktree']=$root
         $receipt['finished']=[datetime]::UtcNow.ToString('o')
-        Write-Utf8 (Join-Path $stateDir 'last-run.json') ($receipt | ConvertTo-Json)
+        Write-Utf8 (Join-Path $stateDir 'last-run.json') ($receipt | ConvertTo-Json -Depth 12)
         $lock.Dispose()
     }
 }
-Write-Output ($receipt | ConvertTo-Json)
+Write-Output ($receipt | ConvertTo-Json -Depth 12)
 exit $exitCode
