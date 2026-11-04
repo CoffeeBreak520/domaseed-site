@@ -22,16 +22,21 @@ Get-ScheduledTask -TaskName DOMASEED-GEO-NightShift
 
 ## Codex Windows 沙盒不可用时
 
-若出现 `setup refresh had errors`，CLI 认证和沙盒初始化是两件事。先在当前用户的管理员 PowerShell 中启动：
+2026-11-04 实测：`setup refresh had errors` 的具体原因是 `codex-computer-use-swift` 占用 `VCRUNTIME140_1.dll`，导致沙盒 ACL 更新失败（Windows 错误 32）。这不是登录失效。保存其他工作后完整退出使用此运行时的 Codex 桌面应用，或重启 Windows 释放占用；不要自动结束其他项目进程。之后可在当前用户的管理员 PowerShell 中检查：
 
 ```powershell
 Set-Location D:\AI-Mission-World\domaseed-site-night-shift
-codex -c 'windows.sandbox="elevated"' -s workspace-write
+codex --disable plugins --disable apps --disable hooks -c 'windows.sandbox="elevated"' -s workspace-write
 ```
 
 在交互式 Codex 中完成提示的 Windows 沙盒初始化和系统确认，退出。这里不能保证系统提示一定出现；若仍报相同错误，保留错误并检查 Codex 沙盒诊断，不要改成完全访问模式。不要尝试未经当前 `--help` 验证的 `sandbox setup` 命令。
 
-已 BLOCKED 的 GEO-001 不会自动重试。修复环境后在最新 night 分支的 TASK_QUEUE.md 把 GEO-001 改为 TODO 并提交（可以在 GitHub 编辑），再试跑上面的 `-OnlyTask GEO-001`。保留旧失败证据。若远端队列和本地干净，启动器会 fast-forward；发生并发修改则停止，不强制覆盖。
+已 BLOCKED 的 GEO-001 不会自动重试。修复环境后运行以下命令，显式记录创始人决定并重排该任务，再试跑。也可在 GitHub 最新 night 分支编辑队列；保留旧失败证据。
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\night-shift\retry-blocked-task.ps1 -TaskId GEO-001 -Decision '已释放 DLL 占用，批准重新试跑 GEO-001。'
+powershell -NoProfile -ExecutionPolicy Bypass -File .\night-shift\run-night-shift.ps1 -OnlyTask GEO-001
+```若远端队列和本地干净，启动器会 fast-forward；发生并发修改则停止，不强制覆盖。
 
 ## 每晚与早上
 

@@ -16,7 +16,7 @@ $day = [TimeZoneInfo]::ConvertTimeFromUtc($started,[TimeZoneInfo]::FindSystemTim
 $branch = "night/geo-$day"
 $reportRel = "night-shift/reports/morning-$day.md"
 $control = [IO.Path]::GetFullPath($RepoPath)
-$root = $null; $baseline = $null; $lock = $null; $report = $null
+$root = $null; $baseline = $null; $lock = $null; $report = $null; $taskId=$null; $queue=$null
 $invoked = $false; $allValid = $true; $remoteVerified = $false; $exitCode=1; $selectedStatus=$null; $unsafe=$false
 $receipt = [ordered]@{ date=$day; started=$started.ToString('o'); onlyTask=$OnlyTask; branch=$branch; codexInvoked=$false; remoteVerified=$false; exitCode=1; taskStatus=$null }
 $stateDir = Join-Path $control '.git/night-shift'
@@ -173,7 +173,8 @@ try {
         }
         $selectedStatus = @((Read-Queue $queue) | Where-Object Id -eq $taskId)[0].Status
         Add-Report $report '今晚做了什么' "- $taskId：$selectedStatus；Codex 进程退出码 $($r.ExitCode)；结构化结果验证 $valid。具体结论与证据见 TASK_QUEUE.md 该项及 evidence。"
-        Add-Report $report '改动清单' "- 第 $i 次会话：$((Invoke-Git $root @('diff','--name-only','HEAD') $deadline) -replace '\r?\n', ', ')。"
+        $changedPaths = @((Invoke-Git $root @('diff','--name-only',$baseline) $deadline) -split '\r?\n') + @((Invoke-Git $root @('ls-files','--others','--exclude-standard') $deadline) -split '\r?\n')
+        Add-Report $report '改动清单' "- 第 $i 次会话：$(($changedPaths | Where-Object { $_ } | Sort-Object -Unique) -join ', ')。"
         $sha = Commit-Night $root $baseline $branch $deadline
         Invoke-Git $root @('push','origin',"HEAD:refs/heads/$branch") $deadline | Out-Null
         $isRemote=$true
@@ -184,6 +185,17 @@ try {
     $exitCode=1
     $failure=$_.Exception.Message
     Write-Utf8 (Join-Path $fallback 'failure.txt') $failure
+    if (-not $unsafe -and $taskId -and $queue -and (Test-Path $queue)) {
+        try {
+            $current=@((Read-Queue $queue) | Where-Object Id -eq $taskId)[0]
+            if ($current.Status -eq 'TODO') {
+                $startupEvidence="night-shift/evidence/$day-$taskId-preflight.json"
+                Write-Utf8 (Join-Path $root $startupEvidence) ((@{task=$taskId;status='BLOCKED';reason='Launcher/preflight failed; see local ignored logs for diagnostics.';at=[datetime]::UtcNow.ToString('o')} | ConvertTo-Json))
+                Set-QueueStatus $queue $taskId 'BLOCKED' "Launcher/preflight failed. Evidence: $startupEvidence"
+                $selectedStatus='BLOCKED'
+            }
+        } catch { }
+    }
     if ($report -and (Test-Path $report)) { Add-Report $report '失败与原因' ("- 启动器失败：" + $failure) }
     else {
         $report=Join-Path $fallback "morning-$day.md"
@@ -194,6 +206,8 @@ try {
     if ($lock) {
         try {
             if (-not $unsafe -and $root -and $baseline -and $report -and $report.StartsWith($root) -and [datetime]::UtcNow -lt $deadline.AddSeconds(-20)) {
+                $snapshot = "| 任务 | 当前状态 |`n|---|---|`n" + (((Read-Queue $queue) | ForEach-Object { "| $($_.Id) | $($_.Status) |" }) -join "`n")
+                Add-Report $report '今晚做了什么' $snapshot
                 $sha = Commit-Night $root $baseline $branch $deadline
                 Invoke-Git $root @('push','origin',"HEAD:refs/heads/$branch") $deadline | Out-Null
                 $remoteLine = Invoke-Git $root @('ls-remote','origin',"refs/heads/$branch") $deadline
