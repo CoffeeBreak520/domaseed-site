@@ -98,7 +98,7 @@ try {
         $skipForDll=$true
         $ownerText=(@($desktop.lockOwners | ForEach-Object { "$($_.name)(PID=$($_.pid))" }) -join ', ')
         if (-not $ownerText) { $ownerText='未能定位占用进程；探测错误码见证据' }
-        $reason=if($desktop.missingDll){'未找到预期运行时 DLL，无法确认释放状态，未执行任务'}else{'DLL 仍被占用，未执行任务'}
+        $reason=if($desktop.missingDll){'未找到预期运行时 DLL，无法确认释放状态，未执行任务'}elseif(@($desktop.dllChecks | Where-Object { -not $_.released }).Count){'DLL 仍被占用，未执行任务'}else{'桌面应用仍在运行，未执行任务'}
         Add-Report $report '失败与原因' "- $reason；占用信息：$ownerText；证据：$desktopRel。任务状态保留，未调用 Codex。"
         throw $reason
     }
