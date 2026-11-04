@@ -31,10 +31,10 @@
 结果: BLOCKED；2026-11-04 仅整理10条英文（美国）及简体中文（中国大陆）精确问题。当前会话没有可调用的真实AI回答通道；可用网页检索不等同于AI回答，因此未执行引擎查询、未生成回答/引用/品牌提及结论。待真实AI访问渠道可用后重新测量。证据：night-shift/evidence/20261104-GEO-002-baseline.json。
 
 ## GEO-003
-状态: TODO
+状态: BLOCKED
 目标: 根据 GEO-002 实测结果起草 1–2 个 FAQ 或页面。
 验收标准:
 - 仅当 GEO-002 状态 DONE 才能开始，否则标 BLOCKED 并注明依赖。
 - 只写 night-shift/drafts/，说明对应的问题和证据；遵守教育游戏定位，不做学习效果承诺，不写创始人姓名/照片。
 - 草稿不进入站点正文、不发布。
-结果: 尚未运行。
+结果: BLOCKED；依赖 GEO-002 为 DONE，但其状态为 BLOCKED，缺少真实 AI 回答、引用及品牌提及实测结果；不得据此推导 FAQ 内容。本次未创建草稿。git add 退出码 128：linked worktree index.lock 权限拒绝；未提交或推送。证据：night-shift/evidence/20261104-GEO-003-dependency.json。
