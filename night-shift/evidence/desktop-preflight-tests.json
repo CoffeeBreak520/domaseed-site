@@ -1,5 +1,5 @@
 {
-    "passed":  13,
+    "passed":  15,
     "scope":  "No real application was terminated by these regression tests. Live desktop trial is separate.",
     "checks":  [
                    "Actual package root is eligible",
@@ -8,6 +8,8 @@
                    "Sandbox service is excluded",
                    "Verified Swift runtime sidecar is eligible",
                    "Same-name unrelated process is excluded",
+                   "PID identity comparison normalizes parsed timestamp to UTC",
+                   "Reused/stale PID identity is rejected",
                    "Unlocked file metadata probe passes",
                    "Actual exclusive file lock is detected as Windows error 32",
                    "Locked file cannot report released",
@@ -16,5 +18,5 @@
                    "Primary evidence plus supporting document is accepted",
                    "Supporting document alone cannot establish DONE"
                ],
-    "at":  "2026-11-04T03:08:01.9245566Z"
+    "at":  "2026-11-04T03:11:58.6500594Z"
 }

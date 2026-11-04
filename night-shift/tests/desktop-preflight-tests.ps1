@@ -13,6 +13,11 @@ Check (-not (Test-DesktopCandidate 'codex.exe' 'C:\Users\Fixture\AppData\Roaming
 Check (-not (Test-DesktopCandidate 'codex-windows-sandbox-service.exe' "$package\app\codex-windows-sandbox-service.exe" @($package) $runtime)) 'Sandbox service is excluded'
 Check (Test-DesktopCandidate 'codex-computer-use-swift.exe' "$runtime\v1\bin\codex-computer-use-swift.exe" @($package) $runtime) 'Verified Swift runtime sidecar is eligible'
 Check (-not (Test-DesktopCandidate 'codex-computer-use-swift.exe' 'C:\Unrelated\codex-computer-use-swift.exe' @($package) $runtime)) 'Same-name unrelated process is excluded'
+$selfProcess=Get-Process -Id $PID
+$selfRow=[pscustomobject]@{pid=$PID;path=$selfProcess.Path;created=$selfProcess.StartTime.ToUniversalTime().ToString('o')}
+Check ([bool](Get-VerifiedLiveDesktopProcess $selfRow)) 'PID identity comparison normalizes parsed timestamp to UTC'
+$staleRow=[pscustomobject]@{pid=$PID;path=$selfProcess.Path;created=$selfProcess.StartTime.ToUniversalTime().AddMinutes(-1).ToString('o')}
+Check (-not (Get-VerifiedLiveDesktopProcess $staleRow)) 'Reused/stale PID identity is rejected'
 $temp=Join-Path ([IO.Path]::GetTempPath()) ('geo-desktop-tests-'+[guid]::NewGuid().ToString('N'))
 [IO.Directory]::CreateDirectory($temp) | Out-Null
 try {

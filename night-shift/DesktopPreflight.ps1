@@ -94,7 +94,7 @@ function Test-RuntimeDllRelease([string[]]$Paths) {
 function Get-VerifiedLiveDesktopProcess($Row) {
     try {
         $live=Get-Process -Id $Row.pid -ErrorAction Stop
-        $sameStart=[Math]::Abs(($live.StartTime.ToUniversalTime()-[datetime]$Row.created).TotalMilliseconds) -lt 1
+        $sameStart=[Math]::Abs(($live.StartTime.ToUniversalTime()-([datetime]$Row.created).ToUniversalTime()).TotalMilliseconds) -lt 1
         if ($sameStart -and $live.Path -ieq $Row.path) { return $live }
     } catch { }
     return $null
@@ -171,3 +171,4 @@ function Close-CodexDesktop {
         scope='Only current-user/current-session OpenAI.Codex package processes and validated Codex Swift sidecar. CLI and sandbox service excluded.'
     }
 }
+
