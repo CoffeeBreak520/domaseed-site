@@ -8,16 +8,17 @@
 |---|---|---|
 | — | — | 待填写 |
 | GEO-001 | 2026-11-04 10:45 | 创始人已手动退出桌面应用，授权按原流程重试 GEO-001。 |
+| GEO-001 | 2026-11-04 | 创始人明确授权第二次桌面开启验收：仅重放只读 GEO-001，保留第一次成功证据；验收后不再重开桌面应用。 |
 
 ## GEO-001
-状态: DONE
+状态: TODO
 目标: 站点体检（只读站点，修复建议另存草稿）。
 验收标准:
 - 为实际静态站点构建本地预览副本，检查 HTTP 返回与内部失效链接，外部链接只读检查并区分网络失败。
 - 检查 title、meta description、canonical、Organization 及合适的游戏/教育 schema.org JSON-LD；不强制重复添加不合适的类型。
 - 核对中英文页面对应，缺少语言版本如实记录；检查完成不等于全部问题解决。
 - 运行 `powershell -NoProfile -File night-shift/audit-site.ps1` 取得证据，核对 findings，必要时仅在 drafts 写建议；报告附实际文件证据。
-结果: 只读站点审计完成，站点问题未全部解决：本地预览 HTTP 200，未发现内部失效链接；外部 canonical 请求失败，无法核验，且源码快照缺少中文页面。队列和晨报已更新。提交因 Git 元数据目录拒绝写入而失败；推送显示 Everything up-to-date，变更仍未提交。 Evidence: night-shift/evidence/20261104-104841-GEO-001-site-audit.json; validation recovered from original actual Codex result.
+结果: Explicit founder-authorized desktop-open acceptance replay; first successful audit evidence retained.
 
 ## GEO-002
 状态: TODO

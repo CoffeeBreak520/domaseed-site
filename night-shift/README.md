@@ -64,3 +64,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\night-shift\tests\run-test
 ```
 
 自动检查是技术验证，不代表 GEO 增长成果。未实际取得 AI 回答的 GEO-002 必须 BLOCKED，GEO-003 不得越过其依赖。站点源文件只读，改进只可起草在 drafts。
+## 自动关闭桌面应用（新增）
+
+每次夜班在领取任务及启动 codex exec 前，检测当前用户/会话的已核实 Codex 桌面程序和 Swift sidecar。正常退出最多等待60秒，仍存活再强制结束；CLI、沙盒服务及其他同名程序均排除。随后对已知版本的 VCRUNTIME140_1.dll 进行独占读/权限元数据句柄检查；该检查不写文件、不改 ACL。若无法确认释放，写晨报和占用信息、提交推送、跳过本晚，任务状态不变。结束后不重新打开应用。
+
+新增回归测试：`powershell -NoProfile -File .\night-shift\tests\desktop-preflight-tests.ps1`。安装器另要求保留原流程成功回执，并验证真实应用开启→自动关闭→DLL释放→GEO-001完成→远端提交一致，且当前脚本哈希与该次证明一致。示例进程或模拟运行不能替代实际验收。
