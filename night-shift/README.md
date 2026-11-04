@@ -26,7 +26,7 @@ Get-ScheduledTask -TaskName DOMASEED-GEO-NightShift
 
 ```powershell
 Set-Location D:\AI-Mission-World\domaseed-site-night-shift
-codex -c 'windows.sandbox="elevated"' -s workspace-write
+codex --disable plugins --disable apps --disable hooks -c 'windows.sandbox="elevated"' -s workspace-write
 ```
 
 在交互式 Codex 中完成提示的 Windows 沙盒初始化和系统确认，退出。这里不能保证系统提示一定出现；若仍报相同错误，保留错误并检查 Codex 沙盒诊断，不要改成完全访问模式。不要尝试未经当前 `--help` 验证的 `sandbox setup` 命令。
