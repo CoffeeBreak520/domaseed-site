@@ -1,0 +1,43 @@
+{
+    "started":  "2026-11-04T15:30:04.6973712Z",
+    "finished":  "2026-11-04T15:30:05.8095475Z",
+    "graceSeconds":  60,
+    "graceStarted":  "2026-11-04T15:30:05.5218441Z",
+    "graceFinished":  "2026-11-04T15:30:05.5238427Z",
+    "graceElapsedSeconds":  0.0019986,
+    "initiallyRunning":  false,
+    "initialProcesses":  [
+
+                         ],
+    "closedDesktop":  false,
+    "initialDllChecks":  [
+                             {
+                                 "path":  "%USERPROFILE%\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\5c41f77a7900391c\\bin\\node_modules\\@oai\\sky\\bin\\windows\\swift\\x64\\VCRUNTIME140_1.dll",
+                                 "released":  true,
+                                 "win32Error":  0,
+                                 "message":  "Exclusive read/write-capable metadata handle opened; no bytes or ACLs changed."
+                             }
+                         ],
+    "method":  "none",
+    "actions":  [
+
+                ],
+    "remainingProcesses":  [
+
+                           ],
+    "dllChecks":  [
+                      {
+                          "path":  "%USERPROFILE%\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\5c41f77a7900391c\\bin\\node_modules\\@oai\\sky\\bin\\windows\\swift\\x64\\VCRUNTIME140_1.dll",
+                          "released":  true,
+                          "win32Error":  0,
+                          "message":  "Exclusive read/write-capable metadata handle opened; no bytes or ACLs changed."
+                      }
+                  ],
+    "released":  true,
+    "lockOwners":  [
+
+                   ],
+    "ownerQueryError":  null,
+    "missingDll":  false,
+    "scope":  "Only current-user/current-session OpenAI.Codex package processes and validated Codex Swift sidecar. CLI and sandbox service excluded."
+}
