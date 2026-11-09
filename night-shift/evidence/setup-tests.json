@@ -1,0 +1,30 @@
+{
+    "at":  "2026-11-04T03:12:41.3963169Z",
+    "passed":  20,
+    "checks":  [
+                   "PowerShell AST: audit-site.ps1: ",
+                   "PowerShell AST: DesktopPreflight.ps1: ",
+                   "PowerShell AST: install-task.ps1: ",
+                   "PowerShell AST: NightShift.Common.ps1: ",
+                   "PowerShell AST: retry-blocked-task.ps1: ",
+                   "PowerShell AST: run-night-shift.ps1: ",
+                   "PowerShell AST: ValidateWorkerResult.ps1: ",
+                   "PowerShell AST: desktop-preflight-tests.ps1: ",
+                   "PowerShell AST: run-tests.ps1: ",
+                   "Only first real TODO parsed; prose ignored",
+                   "Status update preserves founder decisions and other tasks",
+                   "No TODO means no work",
+                   "Resume does not overwrite report or start date",
+                   "Native exit code/stdout/stderr preserved without PS stderr exceptions",
+                   "Timeout terminates native process",
+                   "Forbidden website changes rejected before commit/push",
+                   "Report changes allowed on night branch",
+                   "Installer rejects missing real trial proof even with WhatIf",
+                   "Exclusive lock prevents second instance",
+                   "Released lock file is reusable after process exit"
+               ],
+    "limitations":  [
+                        "Live Codex trial required separately.",
+                        "Future-day carry-over and reboot/wake not yet end-to-end observed."
+                    ]
+}

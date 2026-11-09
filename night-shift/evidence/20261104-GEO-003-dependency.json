@@ -1,0 +1,23 @@
+{
+  "task_id": "GEO-003",
+  "status": "BLOCKED",
+  "recorded_at_local": "2026-11-04",
+  "branch": "night/geo-20261104",
+  "dependency": {
+    "task_id": "GEO-002",
+    "required_status": "DONE",
+    "actual_status": "BLOCKED",
+    "evidence": "night-shift/evidence/20261104-GEO-002-baseline.json",
+    "reason": "GEO-002 contains a question list but no real AI answers, citations, or brand-mention measurements; its evidence states no callable real AI answer channel was available."
+  },
+  "action": "Did not draft FAQ/page content because the required measured findings are unavailable.",
+  "draft_created": false,
+  "site_modified": false,
+  "system_scripts_modified": false
+,
+  "git_handoff": {
+    "command": "git add -- night-shift/TASK_QUEUE.md night-shift/reports/morning-20261104.md night-shift/evidence/20261104-GEO-003-dependency.json",
+    "exit_code": 128,
+    "result": "Failed: unable to create linked worktree index.lock; permission denied. Commit and push were not attempted."
+  }
+}
