@@ -1,0 +1,52 @@
+{
+    "at":  "2026-11-04T03:15:11.7357976Z",
+    "audit":  "GEO-001 static source audit",
+    "scope":  "read-only; source unchanged",
+    "build":  "static file copy; no npm project exists",
+    "checks":  [
+                   {
+                       "check":  "static-preview-http",
+                       "status":  "PASS",
+                       "code":  200,
+                       "bytes":  8937,
+                       "preview":  "logs/preview (ignored)"
+                   }
+               ],
+    "pages":  [
+                  {
+                      "path":  "index.html",
+                      "language":  "en",
+                      "title":  "DOMASEED — Educational Adventure Game by Optiverse",
+                      "description":  "DOMASEED is an in-development educational adventure game from Optiverse, set in a connected future world.",
+                      "schemaJsonValid":  true,
+                      "schemaTypes":  [
+                                          "Organization",
+                                          "VideoGame",
+                                          "FAQPage"
+                                      ],
+                      "canonicalPresent":  true
+                  }
+              ],
+    "links":  [
+                  {
+                      "page":  "index.html",
+                      "url":  "https://domaseed.com/",
+                      "kind":  "external",
+                      "status":  "UNVERIFIED: external request failed"
+                  }
+              ],
+    "findings":  [
+                     "index.html: external link could not be verified: https://domaseed.com/",
+                     "No Chinese HTML page found; bilingual correspondence cannot be verified. Chinese version is absent in this source snapshot."
+                 ],
+    "sourceSHA256":  {
+                         "CNAME":  "312AEA37A608301C261B332CAF96352C7F24C7C89ECF48706E7048BF7B8D74FD",
+                         "sitemap.xml":  "6487F22C8CCBB683819688A4EB6DCB114CB44BF24199FEE45E459D5BBD29AEC0",
+                         "index.html":  "70C394CD4F029CE3850DB320870D09FF7196FCEC3E09D82E59B108E2DA42BB50",
+                         "robots.txt":  "790CD27AF82DAF3E75E2EFC5983076F6384AA53648EBFFD3C38E25169B172BBF"
+                     },
+    "limitations":  [
+                        "JSON-LD syntax/type inspection is not external schema.org conformance validation.",
+                        "Audit checks source and local preview; does not establish search indexing or AI visibility."
+                    ]
+}
