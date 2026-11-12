@@ -1,0 +1,1 @@
+{"type":"object","additionalProperties":false,"required":["task_id","status","summary","evidence"],"properties":{"task_id":{"type":"string"},"status":{"type":"string","enum":["DONE","BLOCKED","NEEDS_FOUNDER"]},"summary":{"type":"string"},"evidence":{"type":"array","items":{"type":"string"}}}}

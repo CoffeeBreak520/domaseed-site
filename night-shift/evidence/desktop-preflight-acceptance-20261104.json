@@ -1,0 +1,369 @@
+{
+    "at":  "2026-11-04T03:19:51.6693772Z",
+    "originalFlow":  {
+                         "validationRecovered":  true,
+                         "status":  "DONE",
+                         "remoteSha":  "92dd1998451c80a3ee3eb8b808808241ca4bb992",
+                         "actualCodex":  true
+                     },
+    "desktopOpenFlow":  {
+                            "remoteSha":  "232e01623d91df2a2bdc1d3a0041fd1da2c26070",
+                            "actualCodex":  true,
+                            "helperSHA256":  "B34700000F42866612F5DC608E941D431ED93B93ADD45C631819265844475D76",
+                            "preflight":  {
+                                              "started":  "2026-11-04T03:13:25.2752155Z",
+                                              "finished":  "2026-11-04T03:14:34.5945001Z",
+                                              "graceSeconds":  60,
+                                              "graceStarted":  "2026-11-04T03:13:29.1562033Z",
+                                              "graceFinished":  "2026-11-04T03:14:29.3368656Z",
+                                              "graceElapsedSeconds":  60.180662299999995,
+                                              "initiallyRunning":  true,
+                                              "initialProcesses":  [
+                                                                       {
+                                                                           "pid":  26012,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:06.8194310Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  19468,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:07.0199350Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  42944,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:07.0649100Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  7040,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:07.6342990Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  22584,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:07.6474260Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  28812,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:07.6947420Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  7368,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:09.7846040Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  22648,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:09.7882140Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  28548,
+                                                                           "name":  "codex.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\resources\\codex.exe",
+                                                                           "created":  "2026-11-04T03:09:09.8823310Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  14660,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:10.5860130Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  8196,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:11.6297660Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  31080,
+                                                                           "name":  "codex-computer-use-swift.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\resources\\cua_node\\bin\\node_modules\\@oai\\sky\\bin\\windows\\swift\\x64\\codex-computer-use-swift.exe",
+                                                                           "created":  "2026-11-04T03:09:17.3156680Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  41508,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:17.5843820Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  6412,
+                                                                           "name":  "codex.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\resources\\codex.exe",
+                                                                           "created":  "2026-11-04T03:09:22.5579470Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  43744,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:24.6962910Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  43688,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:25.0811930Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  27288,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:25.3932000Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  42596,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:36.4663600Z"
+                                                                       },
+                                                                       {
+                                                                           "pid":  43068,
+                                                                           "name":  "ChatGPT.exe",
+                                                                           "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+                                                                           "created":  "2026-11-04T03:09:37.4456650Z"
+                                                                       }
+                                                                   ],
+                                              "closedDesktop":  true,
+                                              "initialDllChecks":  [
+                                                                       {
+                                                                           "path":  "%USERPROFILE%\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\5c41f77a7900391c\\bin\\node_modules\\@oai\\sky\\bin\\windows\\swift\\x64\\VCRUNTIME140_1.dll",
+                                                                           "released":  true,
+                                                                           "win32Error":  0,
+                                                                           "message":  "Exclusive read/write-capable metadata handle opened; no bytes or ACLs changed."
+                                                                       }
+                                                                   ],
+                                              "method":  "force",
+                                              "actions":  [
+                                                              {
+                                                                  "pid":  26012,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  true,
+                                                                  "at":  "2026-11-04T03:13:29.2056075Z",
+                                                                  "detail":  "WM_CLOSE requested for main window."
+                                                              },
+                                                              {
+                                                                  "pid":  19468,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.2217860Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  42944,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.2327819Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  7040,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.2417837Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  22584,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.2507888Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  28812,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.2517884Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  7368,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.2678447Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  22648,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.2765783Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  28548,
+                                                                  "name":  "codex.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.2868092Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  14660,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.2948084Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  8196,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.3038098Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  31080,
+                                                                  "name":  "codex-computer-use-swift.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.3178105Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  41508,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.3328096Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  6412,
+                                                                  "name":  "codex.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.3429843Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  43744,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.3499301Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  43688,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.3655089Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  27288,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.3703167Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  42596,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.3887631Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  43068,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "normal-request",
+                                                                  "windowCloseRequested":  false,
+                                                                  "at":  "2026-11-04T03:13:29.3987543Z",
+                                                                  "detail":  "No main window; waits for application shutdown."
+                                                              },
+                                                              {
+                                                                  "pid":  26012,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "force",
+                                                                  "at":  "2026-11-04T03:14:32.7445447Z",
+                                                                  "detail":  "Still running after shared graceful timeout."
+                                                              },
+                                                              {
+                                                                  "pid":  19468,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "force",
+                                                                  "at":  "2026-11-04T03:14:32.7726201Z",
+                                                                  "detail":  "Still running after shared graceful timeout."
+                                                              },
+                                                              {
+                                                                  "pid":  7040,
+                                                                  "name":  "ChatGPT.exe",
+                                                                  "method":  "force",
+                                                                  "at":  "2026-11-04T03:14:32.8361648Z",
+                                                                  "detail":  "Still running after shared graceful timeout."
+                                                              }
+                                                          ],
+                                              "remainingProcesses":  [
+
+                                                                     ],
+                                              "dllChecks":  [
+                                                                {
+                                                                    "path":  "%USERPROFILE%\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\5c41f77a7900391c\\bin\\node_modules\\@oai\\sky\\bin\\windows\\swift\\x64\\VCRUNTIME140_1.dll",
+                                                                    "released":  true,
+                                                                    "win32Error":  0,
+                                                                    "message":  "Exclusive read/write-capable metadata handle opened; no bytes or ACLs changed."
+                                                                }
+                                                            ],
+                                              "released":  true,
+                                              "lockOwners":  [
+
+                                                             ],
+                                              "ownerQueryError":  null,
+                                              "missingDll":  false,
+                                              "scope":  "Only current-user/current-session OpenAI.Codex package processes and validated Codex Swift sidecar. CLI and sandbox service excluded."
+                                          },
+                            "launcherSHA256":  "4625F8382A81834C26FAEBBED6C024D2F5356D9F809C1C54D05BD63CBC4B7E78",
+                            "status":  "DONE"
+                        },
+    "scheduler":  {
+                      "at":  "2026-11-04T03:18:06.5253600Z",
+                      "installed":  true,
+                      "task":  "DOMASEED-GEO-NightShift",
+                      "state":  "Ready",
+                      "dailyTime":  "23:30",
+                      "timezone":  "China Standard Time",
+                      "wakeToRun":  true,
+                      "executionTimeLimit":  "PT5H",
+                      "multipleInstances":  "IgnoreNew",
+                      "logonType":  "Interactive",
+                      "runLevel":  "Limited",
+                      "user":  "current authenticated Windows user",
+                      "nextRun":  "2026-11-04T23:30:00.0000000+08:00",
+                      "verifiedRunSha":  "232e01623d91df2a2bdc1d3a0041fd1da2c26070",
+                      "firstProofSha":  "92dd1998451c80a3ee3eb8b808808241ca4bb992",
+                      "desktopMethod":  "force",
+                      "graceElapsedSeconds":  60.180662299999995,
+                      "desktopRemainsClosed":  true
+                  },
+    "checksPassed":  35,
+    "desktopStillRunning":  0,
+    "mainUnchangedSha":  "bf23f1ff8f7d5f1b80ec97a17184df01bc8247ad",
+    "siteBodyChanged":  false,
+    "sandbox":  "workspace-write and never approvals; no relaxation; no ACL changes"
+}
