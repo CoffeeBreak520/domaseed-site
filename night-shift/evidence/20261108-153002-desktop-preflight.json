@@ -1,0 +1,62 @@
+{
+    "started":  "2026-11-08T15:30:07.0827886Z",
+    "finished":  "2026-11-08T15:31:09.1065537Z",
+    "graceSeconds":  60,
+    "graceStarted":  "2026-11-08T15:30:08.0276197Z",
+    "graceFinished":  "2026-11-08T15:31:08.0390120Z",
+    "graceElapsedSeconds":  60.0113923,
+    "initiallyRunning":  true,
+    "initialProcesses":  [
+                             {
+                                 "pid":  35860,
+                                 "name":  "extension-host.exe",
+                                 "path":  "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.1029.7803.0_x64__2p2nqsd0c76g0\\app\\resources\\plugins\\openai-bundled\\plugins\\chrome\\extension-host\\windows\\x64\\extension-host.exe",
+                                 "created":  "2026-11-07T15:31:13.5769480Z"
+                             }
+                         ],
+    "closedDesktop":  true,
+    "initialDllChecks":  [
+                             {
+                                 "path":  "%USERPROFILE%\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\5c41f77a7900391c\\bin\\node_modules\\@oai\\sky\\bin\\windows\\swift\\x64\\VCRUNTIME140_1.dll",
+                                 "released":  true,
+                                 "win32Error":  0,
+                                 "message":  "Exclusive read/write-capable metadata handle opened; no bytes or ACLs changed."
+                             }
+                         ],
+    "method":  "force",
+    "actions":  [
+                    {
+                        "pid":  35860,
+                        "name":  "extension-host.exe",
+                        "method":  "normal-request",
+                        "windowCloseRequested":  false,
+                        "at":  "2026-11-08T15:30:08.0639762Z",
+                        "detail":  "No main window; waits for application shutdown."
+                    },
+                    {
+                        "pid":  35860,
+                        "name":  "extension-host.exe",
+                        "method":  "force",
+                        "at":  "2026-11-08T15:31:08.3243498Z",
+                        "detail":  "Still running after shared graceful timeout."
+                    }
+                ],
+    "remainingProcesses":  [
+
+                           ],
+    "dllChecks":  [
+                      {
+                          "path":  "%USERPROFILE%\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\5c41f77a7900391c\\bin\\node_modules\\@oai\\sky\\bin\\windows\\swift\\x64\\VCRUNTIME140_1.dll",
+                          "released":  true,
+                          "win32Error":  0,
+                          "message":  "Exclusive read/write-capable metadata handle opened; no bytes or ACLs changed."
+                      }
+                  ],
+    "released":  true,
+    "lockOwners":  [
+
+                   ],
+    "ownerQueryError":  null,
+    "missingDll":  false,
+    "scope":  "Only current-user/current-session OpenAI.Codex package processes and validated Codex Swift sidecar. CLI and sandbox service excluded."
+}
