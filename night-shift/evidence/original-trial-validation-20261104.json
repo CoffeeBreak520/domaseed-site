@@ -1,0 +1,19 @@
+{
+    "actualEventLogSHA256":  "D3A7102EC12E9CD1814A7760B3D66FD0260AB51644B4C5602623D09571A7F524",
+    "stage":  "original-desktop-manually-closed",
+    "reason":  "Primary evidence plus supporting queue/report is valid. Historical stdout text must not classify current errors.",
+    "task":  "GEO-001",
+    "primarySHA256":  "5CD6CBFFC6A3ACD71695A4EC813865A25CFDBBD660795CAD6BB890D7D3FB4905",
+    "status":  "DONE",
+    "primaryEvidence":  "night-shift/evidence/20261104-104841-GEO-001-site-audit.json",
+    "at":  "2026-11-04T02:53:12.7966549Z",
+    "sandbox":  "workspace-write; approval never; unchanged",
+    "codexInvoked":  true,
+    "regressions":  [
+                        "Existing branch glob lookup passes",
+                        "Supporting report paths accepted only with primary evidence",
+                        "Report-only DONE rejected"
+                    ],
+    "recoveredValidation":  true,
+    "resultSHA256":  "52AB5B1414A3F60844D29C75344F3248358141CF7D66A8711ACDD0F269E97B71"
+}
