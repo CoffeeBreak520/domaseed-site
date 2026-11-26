@@ -46,6 +46,22 @@ try {
     Assert $true 'Manual evidence validates without promoting status to DONE'
     $launcher=[IO.File]::ReadAllText((Join-Path $framework 'run-night-shift.ps1'))
     Assert ($launcher.IndexOf('if (-not $first.Count)') -lt $launcher.IndexOf('$desktop = Close-CodexDesktop')) 'Empty queue is handled before desktop or model execution'
+    $weekPath=Join-Path $temp 'night-shift/evidence/manual-reminder-week-20261123.json'
+    $week=[IO.File]::ReadAllText($weekPath) | ConvertFrom-Json
+    Assert ($week.emittedDay -eq '20261126' -and -not $week.paidApi -and -not $week.automaticRetest) 'Weekly reminder records actual emission day without paid API or retest'
+    $next=Join-Path $temp 'night-shift/reports/morning-20261127.md'
+    Ensure-Report $next '20261127'
+    Update-TaskReport $temp $next '20261127' | Out-Null
+    $nextText=[IO.File]::ReadAllText($next)
+    Assert ($nextText.Contains('不重复提醒') -and -not $nextText.Contains('本周一次提醒：')) 'Next night in same week does not issue another reminder'
+    $monday=Join-Path $temp 'night-shift/reports/morning-20261130.md'
+    Ensure-Report $monday '20261130'
+    Update-TaskReport $temp $monday '20261130' | Out-Null
+    Assert ((Test-Path (Join-Path $temp 'night-shift/evidence/manual-reminder-week-20261130.json')) -and [IO.File]::ReadAllText($monday).Contains('本周一次提醒：')) 'New Monday starts a new reminder week'
+    $extraTask="`n## GEO-004`n状态: TODO`n结果: queued`n## GEO-005`n状态: TODO`n结果: queued`n## GEO-006`n状态: TODO`n结果: queued`n"
+    Write-Utf8 $queue ([IO.File]::ReadAllText($queue)+$extraTask)
+    $all=@(Read-Queue $queue)
+    Assert ($all.Count -eq 6 -and @($all | Where-Object Status -eq TODO)[0].Id -eq 'GEO-004') 'New tasks become executable while manual GEO-002 remains unclaimed'
     $result=[ordered]@{at=[datetime]::UtcNow.ToString('o');passed=$passed.Count;checks=$passed}
     Write-Utf8 (Join-Path $framework 'evidence/task-reporting-tests-20261126.json') ($result | ConvertTo-Json -Depth 5)
     $result | ConvertTo-Json -Depth 5

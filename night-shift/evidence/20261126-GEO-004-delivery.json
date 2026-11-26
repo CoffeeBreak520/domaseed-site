@@ -1,0 +1,17 @@
+{
+    "task":  "GEO-004",
+    "status":  "DONE",
+    "at":  "2026-11-26T07:56:30.2535247Z",
+    "acceptance":  "REQUESTED_DOCUMENT_OR_CHECK_DELIVERED_NOT_WEBSITE_RELEASE",
+    "summary":  "已交付8项按影响排序的修复/核验清单，含页面、证据、难度和验收；尚未执行网站修复。",
+    "outputs":  [
+                    {
+                        "sha256":  "979130F00E14389730ED7F29FCECA89F09B1EF9FFAE788886016BD1377E26DA9",
+                        "path":  "night-shift/drafts/website-repair-backlog-20261126.md"
+                    }
+                ],
+    "paidApiUsed":  false,
+    "publishedToWebsite":  false,
+    "siteUnchanged":  true,
+    "review":  "Compared against existing public-source facts; plans and implemented behavior distinguished; primary technical sources listed in schema report."
+}

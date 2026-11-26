@@ -1,0 +1,25 @@
+{
+    "task":  "GEO-005",
+    "status":  "DONE",
+    "at":  "2026-11-26T07:56:30.3244686Z",
+    "acceptance":  "REQUESTED_DOCUMENT_OR_CHECK_DELIVERED_NOT_WEBSITE_RELEASE",
+    "summary":  "已交付FAQ第3–5篇中英草稿，逐项标明来源、事实边界及待GEO-002复核；未经发布审核。",
+    "outputs":  [
+                    {
+                        "sha256":  "59655F6A6BC2E0E826668B36B716889B31B7BAD874EB15BB66FD825B2860CE33",
+                        "path":  "night-shift/drafts/faq-03-audience-20261126.md"
+                    },
+                    {
+                        "sha256":  "FBB9EFEDF8E25A0EE9F620FD19E676CE502091689E089B3B185E22B13CFABB11",
+                        "path":  "night-shift/drafts/faq-04-learning-20261126.md"
+                    },
+                    {
+                        "sha256":  "F716D6A7F1D18FE7CF1E73A40F9E0F508D56500EA90C4C732205084744A9DC45",
+                        "path":  "night-shift/drafts/faq-05-availability-20261126.md"
+                    }
+                ],
+    "paidApiUsed":  false,
+    "publishedToWebsite":  false,
+    "siteUnchanged":  true,
+    "review":  "Compared against existing public-source facts; plans and implemented behavior distinguished; primary technical sources listed in schema report."
+}

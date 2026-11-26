@@ -1,86 +1,88 @@
 {
-  "type": "GEO_MANUAL_EVIDENCE_REGISTRY",
-  "recordedOn": "2026-11-26",
-  "status": "PARTIAL-MANUAL",
-  "acceptance": "HISTORICAL_SUMMARIES_ONLY_NOT_A_VERIFIED_COMPLETE_BASELINE",
-  "provenance": "Retrieved prior project conversation summaries; original answer exports and citation files not located. Never use October files as November evidence.",
-  "records": [
-    {
-      "reportedDate": "2026-11-05",
-      "engineReported": "ChatGPT with web search",
-      "sourceLevel": "PRIOR_ASSISTANT_SUMMARY",
-      "reportedQuestionIds": [
-        "Q001",
-        "Q003",
-        "Q005",
-        "Q009",
-        "Q010",
-        "ENT-01 x2",
-        "ENT-02 x2"
-      ],
-      "historicalReportedMetrics": {
-        "sessions": 9,
-        "unbrandedMentions": {
-          "numerator": 0,
-          "denominator": 5
-        },
-        "correctEntityRecognition": {
-          "numerator": 0,
-          "denominator": 4
-        },
-        "officialWebsiteLinks": {
-          "numerator": 0,
-          "denominator": 9
-        }
-      },
-      "exactPrompts": null,
-      "rawAnswers": null,
-      "citationUrls": null,
-      "model": null,
-      "locale": null,
-      "independentSamplingVerified": false,
-      "verifiedAgainstRaw": false
-    },
-    {
-      "reportedDate": "2026-11-06",
-      "engineReported": "ChatGPT with web search",
-      "sourceLevel": "UNVERIFIED_PRIOR_ASSISTANT_SUMMARY",
-      "historicalReportedMetrics": {
-        "entitySessions": 4,
-        "correctEntityRecognition": {
-          "numerator": 0,
-          "denominator": 4
-        },
-        "optiverseMentions": {
-          "numerator": 0,
-          "denominator": 4
-        },
-        "officialWebsiteLinks": {
-          "numerator": 0,
-          "denominator": 4
-        }
-      },
-      "exactPrompts": null,
-      "rawAnswers": null,
-      "citationUrls": null,
-      "model": null,
-      "locale": null,
-      "verifiedAgainstRaw": false,
-      "limitation": "Retrieval also found an earlier note describing these retests as planned. Without originals, completion and the aggregate figures remain unverified."
-    }
-  ],
-  "missing": [
-    "Original exact prompts and per-session answers for November 5 and 6",
-    "Per-answer citation records; no citation captured is not the same as zero citations",
-    "Measured model/locale and session provenance",
-    "Reconciliation of frozen prompt IDs before historical comparisons"
-  ],
-  "nextAction": "Keep manual measurements pending; import supplied originals with provenance. No repeated unattended GEO-002 model attempts and no new paid API.",
-  "olderBaseline": {
-    "date": "2026-10-19",
-    "accepted": true,
-    "limitation": "citations partial",
-    "preserve": true,
-    "doNotRelabelAsNovember": true
-  }
+    "type":  "GEO_MANUAL_EVIDENCE_REGISTRY",
+    "recordedOn":  "2026-11-26",
+    "status":  "PARTIAL-MANUAL",
+    "acceptance":  "HISTORICAL_SUMMARIES_ONLY_NOT_A_VERIFIED_COMPLETE_BASELINE",
+    "provenance":  "Retrieved prior project conversation summaries; original answer exports and citation files not located. Never use October files as November evidence.",
+    "records":  [
+                    {
+                        "reportedDate":  "2026-11-05",
+                        "engineReported":  "ChatGPT with web search",
+                        "sourceLevel":  "PRIOR_ASSISTANT_SUMMARY",
+                        "reportedQuestionIds":  [
+                                                    "Q001",
+                                                    "Q003",
+                                                    "Q005",
+                                                    "Q009",
+                                                    "Q010",
+                                                    "ENT-01 x2",
+                                                    "ENT-02 x2"
+                                                ],
+                        "historicalReportedMetrics":  {
+                                                          "sessions":  9,
+                                                          "unbrandedMentions":  {
+                                                                                    "numerator":  0,
+                                                                                    "denominator":  5
+                                                                                },
+                                                          "correctEntityRecognition":  {
+                                                                                           "numerator":  0,
+                                                                                           "denominator":  4
+                                                                                       },
+                                                          "officialWebsiteLinks":  {
+                                                                                       "numerator":  0,
+                                                                                       "denominator":  9
+                                                                                   }
+                                                      },
+                        "exactPrompts":  null,
+                        "rawAnswers":  null,
+                        "citationUrls":  null,
+                        "model":  null,
+                        "locale":  null,
+                        "independentSamplingVerified":  false,
+                        "verifiedAgainstRaw":  false
+                    },
+                    {
+                        "reportedDate":  "2026-11-06",
+                        "engineReported":  "ChatGPT with web search",
+                        "sourceLevel":  "UNVERIFIED_PRIOR_ASSISTANT_SUMMARY",
+                        "historicalReportedMetrics":  {
+                                                          "entitySessions":  4,
+                                                          "correctEntityRecognition":  {
+                                                                                           "numerator":  0,
+                                                                                           "denominator":  4
+                                                                                       },
+                                                          "optiverseMentions":  {
+                                                                                    "numerator":  0,
+                                                                                    "denominator":  4
+                                                                                },
+                                                          "officialWebsiteLinks":  {
+                                                                                       "numerator":  0,
+                                                                                       "denominator":  4
+                                                                                   }
+                                                      },
+                        "exactPrompts":  null,
+                        "rawAnswers":  null,
+                        "citationUrls":  null,
+                        "model":  null,
+                        "locale":  null,
+                        "verifiedAgainstRaw":  false,
+                        "limitation":  "Retrieval also found an earlier note describing these retests as planned. Without originals, completion and the aggregate figures remain unverified."
+                    }
+                ],
+    "missing":  [
+                    "Original exact prompts and per-session answers for November 5 and 6",
+                    "Per-answer citation records; no citation captured is not the same as zero citations",
+                    "Measured model/locale and session provenance",
+                    "Reconciliation of frozen prompt IDs before historical comparisons"
+                ],
+    "nextAction":  "Keep manual measurements pending; import supplied originals with provenance. No repeated unattended GEO-002 model attempts and no new paid API.",
+    "olderBaseline":  {
+                          "date":  "2026-10-19",
+                          "accepted":  true,
+                          "limitation":  "citations partial",
+                          "preserve":  true,
+                          "doNotRelabelAsNovember":  true
+                      },
+    "eligibleAsVerifiedBaseline":  false,
+    "missingOriginalsDisposition":  "Historical reference only. If originals remain unavailable, collect a separately dated new manual baseline after approved content changes. Preserve the accepted October baseline."
 }

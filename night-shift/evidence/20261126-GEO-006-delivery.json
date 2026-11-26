@@ -1,0 +1,42 @@
+{
+    "task":  "GEO-006",
+    "status":  "DONE",
+    "at":  "2026-11-26T07:56:30.3613032Z",
+    "acceptance":  "REQUESTED_DOCUMENT_OR_CHECK_DELIVERED_NOT_WEBSITE_RELEASE",
+    "summary":  "已完成5项当前源码检查，7条FAQ可见问答与JSON-LD一致；候选图校验及官方功能限制说明已交付，未应用到网站。",
+    "outputs":  [
+                    {
+                        "sha256":  "C77DBE00EB1DFB5847A8BBE8BC11A801C6221A0C98E35E61E90A4255B4DAC3A1",
+                        "path":  "night-shift/drafts/schema-review-20261126.md"
+                    },
+                    {
+                        "sha256":  "3865B8BD39B5651C9D864B6ED51D8BD7B263EDFD3B2140CDBDB04955F0AFAF98",
+                        "path":  "night-shift/drafts/schema-graph-candidate-20261126.json"
+                    },
+                    {
+                        "sha256":  "AB91ECF41F6D4C0F93F4ACA73035374174B1ECF3E5FCFFFCFB8EC320D241163E",
+                        "path":  "night-shift/evidence/20261126-GEO-006-schema-audit.json"
+                    }
+                ],
+    "paidApiUsed":  false,
+    "publishedToWebsite":  false,
+    "siteUnchanged":  true,
+    "review":  "Compared against existing public-source facts; plans and implemented behavior distinguished; primary technical sources listed in schema report.",
+    "attemptJournal":  [
+                           {
+                               "attempt":  1,
+                               "status":  "FAILED",
+                               "reason":  "PowerShell candidate clone handling raised missing creator property; corrected without source changes."
+                           },
+                           {
+                               "attempt":  2,
+                               "status":  "REJECTED_BY_REGRESSION",
+                               "reason":  "Source checks passed, but graph serialization produced an array wrapper; regression test rejected the candidate."
+                           },
+                           {
+                               "attempt":  3,
+                               "status":  "PASS",
+                               "reason":  "Clone each node separately; graph round-trip, negative fixtures and live source checks passed."
+                           }
+                       ]
+}

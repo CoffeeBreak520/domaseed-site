@@ -1,0 +1,20 @@
+{
+    "at":  "2026-11-26T07:54:54.0408175Z",
+    "passed":  14,
+    "checks":  [
+                   "Two recorded blocked nights escalate automatically",
+                   "Report includes actual reason, attempt and required action",
+                   "Same-night rerun does not increase blocked count",
+                   "Reporting is idempotent and preserves earlier observations",
+                   "Missing prior status never fabricates a blocked night",
+                   "Manual partial is parseable and not automatically dispatched",
+                   "Manual status clears obsolete escalation but retains missing evidence notice",
+                   "Manual partial requires a real primary evidence file",
+                   "Manual evidence validates without promoting status to DONE",
+                   "Empty queue is handled before desktop or model execution",
+                   "Weekly reminder records actual emission day without paid API or retest",
+                   "Next night in same week does not issue another reminder",
+                   "New Monday starts a new reminder week",
+                   "New tasks become executable while manual GEO-002 remains unclaimed"
+               ]
+}
