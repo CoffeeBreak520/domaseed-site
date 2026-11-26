@@ -1,0 +1,29 @@
+{
+    "task":  "GEO-003",
+    "status":  "DONE",
+    "acceptance":  "DRAFT_DELIVERED_ONLY_NOT_RELEASE_APPROVED",
+    "at":  "2026-11-26T07:16:37.4053638Z",
+    "prerequisite":  "GEO-001 DONE",
+    "sourceAudit":  "night-shift/evidence/20261104-111510-GEO-001-site-audit.json",
+    "siteBaseline":  "0e55762555b763ce920c103ec9650a0342c2f31c",
+    "outputs":  [
+                    {
+                        "path":  "night-shift/drafts/parent-faq-en-zh-20261126.md",
+                        "sha256":  "19BA833307C2D5BAEAD57AF742421E02EB861A27243D2915255F081DB177EC37",
+                        "bytes":  4204
+                    },
+                    {
+                        "path":  "night-shift/drafts/what-is-domaseed-20261126.md",
+                        "sha256":  "FC510FE05311E656A5CB68D8BA05E7FFE5A1CFD82D1C1D973EC2DE4D6061C5E3",
+                        "bytes":  2961
+                    }
+                ],
+    "measurementLimitation":  "GEO-002 data review pending; no new AI measurements or proven GEO outcomes",
+    "review":  "Manually checked against existing index.html facts; planned versus implemented statements distinguished; bilingual drafts not published",
+    "siteBefore":  {
+                       "CNAME":  "312AEA37A608301C261B332CAF96352C7F24C7C89ECF48706E7048BF7B8D74FD",
+                       "sitemap.xml":  "6487F22C8CCBB683819688A4EB6DCB114CB44BF24199FEE45E459D5BBD29AEC0",
+                       "index.html":  "C394183EA660C9AB80718F0C9E483BCF14AC892F1C03BA7E9711D40A3B2BBE18",
+                       "robots.txt":  "790CD27AF82DAF3E75E2EFC5983076F6384AA53648EBFFD3C38E25169B172BBF"
+                   }
+}

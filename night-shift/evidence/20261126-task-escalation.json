@@ -1,0 +1,259 @@
+{
+    "at":  "2026-11-26T07:16:37.8024548Z",
+    "day":  "20261126",
+    "counting":  "one observation per dated report; missing status breaks streak; same-night reruns do not increment",
+    "tasks":  [
+                  {
+                      "status":  "DONE",
+                      "task":  "GEO-001",
+                      "history":  [
+                                      {
+                                          "day":  "20261104",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261105",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261107",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261108",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261109",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261110",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261112",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261113",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261114",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261115",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261116",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261117",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261118",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261119",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261120",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261121",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261122",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261123",
+                                          "status":  "DONE"
+                                      },
+                                      {
+                                          "day":  "20261126",
+                                          "status":  "DONE"
+                                      }
+                                  ],
+                      "escalated":  false,
+                      "blockedNights":  0
+                  },
+                  {
+                      "status":  "PARTIAL-MANUAL",
+                      "task":  "GEO-002",
+                      "history":  [
+                                      {
+                                          "day":  "20261104",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261105",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261107",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261108",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261109",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261110",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261112",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261113",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261114",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261115",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261116",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261117",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261118",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261119",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261120",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261121",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261122",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261123",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261126",
+                                          "status":  "PARTIAL-MANUAL"
+                                      }
+                                  ],
+                      "escalated":  false,
+                      "blockedNights":  0
+                  },
+                  {
+                      "status":  "DONE",
+                      "task":  "GEO-003",
+                      "history":  [
+                                      {
+                                          "day":  "20261104",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261105",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261107",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261108",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261109",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261110",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261112",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261113",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261114",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261115",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261116",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261117",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261118",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261119",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261120",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261121",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261122",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261123",
+                                          "status":  "BLOCKED"
+                                      },
+                                      {
+                                          "day":  "20261126",
+                                          "status":  "DONE"
+                                      }
+                                  ],
+                      "escalated":  false,
+                      "blockedNights":  0
+                  }
+              ]
+}
