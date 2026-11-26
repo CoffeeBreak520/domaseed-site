@@ -65,16 +65,21 @@ function Read-Queue([string]$Path) {
     $raw = [IO.File]::ReadAllText($Path)
     $items = @()
     foreach ($m in [regex]::Matches($raw, '(?ms)^## (GEO-\d+)\s*\r?\n(.*?)(?=^## |\z)')) {
-        $s = [regex]::Match($m.Groups[2].Value, '(?m)^状态: (TODO|DONE|BLOCKED|NEEDS_FOUNDER)\s*$')
+        $s = [regex]::Match($m.Groups[2].Value, '(?m)^状态: (TODO|DONE|BLOCKED|NEEDS_FOUNDER|PARTIAL-MANUAL)\s*$')
         if (-not $s.Success) { throw "Invalid status for $($m.Groups[1].Value)" }
-        $items += [pscustomobject]@{Id=$m.Groups[1].Value; Status=$s.Groups[1].Value}
+        $fields=@{}
+        foreach($field in @('结果','阻塞原因','已尝试','所需决定')) {
+            $value=[regex]::Match($m.Groups[2].Value,'(?m)^'+[regex]::Escape($field)+': (.*)$')
+            $fields[$field]=if($value.Success){$value.Groups[1].Value.Trim()}else{''}
+        }
+        $items += [pscustomobject]@{Id=$m.Groups[1].Value; Status=$s.Groups[1].Value; Result=$fields['结果']; Reason=$fields['阻塞原因']; Tried=$fields['已尝试']; Decision=$fields['所需决定']}
     }
     if (-not $items.Count) { throw 'No parseable queue tasks.' }
     if (@($items.Id | Select-Object -Unique).Count -ne $items.Count) { throw 'Duplicate task IDs.' }
     return $items
 }
 function Set-QueueStatus([string]$Path,[string]$Id,[string]$Status,[string]$Result) {
-    if ($Status -notin @('TODO','DONE','BLOCKED','NEEDS_FOUNDER')) { throw 'Invalid state' }
+    if ($Status -notin @('TODO','DONE','BLOCKED','NEEDS_FOUNDER','PARTIAL-MANUAL')) { throw 'Invalid state' }
     $raw = [IO.File]::ReadAllText($Path)
     $pat = '(?ms)^## ' + [regex]::Escape($Id) + '\s*\r?\n.*?(?=^## |\z)'
     $m = [regex]::Match($raw,$pat)

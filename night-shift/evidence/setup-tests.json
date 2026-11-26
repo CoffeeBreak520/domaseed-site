@@ -1,6 +1,6 @@
 {
-    "at":  "2026-11-04T03:12:41.3963169Z",
-    "passed":  20,
+    "at":  "2026-11-26T07:16:44.8910707Z",
+    "passed":  23,
     "checks":  [
                    "PowerShell AST: audit-site.ps1: ",
                    "PowerShell AST: DesktopPreflight.ps1: ",
@@ -8,9 +8,12 @@
                    "PowerShell AST: NightShift.Common.ps1: ",
                    "PowerShell AST: retry-blocked-task.ps1: ",
                    "PowerShell AST: run-night-shift.ps1: ",
+                   "PowerShell AST: TaskReporting.ps1: ",
                    "PowerShell AST: ValidateWorkerResult.ps1: ",
+                   "PowerShell AST: repair-20261126.ps1: ",
                    "PowerShell AST: desktop-preflight-tests.ps1: ",
                    "PowerShell AST: run-tests.ps1: ",
+                   "PowerShell AST: task-reporting-tests.ps1: ",
                    "Only first real TODO parsed; prose ignored",
                    "Status update preserves founder decisions and other tasks",
                    "No TODO means no work",

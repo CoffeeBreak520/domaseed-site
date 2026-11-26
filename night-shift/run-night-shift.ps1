@@ -11,6 +11,7 @@ $ErrorActionPreference='Stop'
 if (-not $RepoPath) { $RepoPath = Split-Path -Parent $PSScriptRoot }
 . "$PSScriptRoot\NightShift.Common.ps1"
 . "$PSScriptRoot\ValidateWorkerResult.ps1"
+. "$PSScriptRoot\TaskReporting.ps1"
 . "$PSScriptRoot\DesktopPreflight.ps1"
 $started = [datetime]::UtcNow
 $deadline = $started.AddSeconds($NightTimeoutSeconds)
@@ -76,11 +77,26 @@ try {
         $oldIgnore = if (Test-Path $ignore) { [IO.File]::ReadAllText($ignore) } else { '' }
         if ($oldIgnore -notmatch '(?m)^/night-shift/logs/\s*$') { Write-Utf8 $ignore ($oldIgnore.TrimEnd() + "`n/night-shift/logs/`n") }
     }
+    if (-not $newNight) {
+        $frameworkFiles=@((Invoke-Git $control @('ls-files','night-shift') $deadline) -split '\r?\n' | Where-Object { $_ -match '^night-shift/[^/]+\.(ps1|json|md)$' -and $_ -ne 'night-shift/TASK_QUEUE.md' })
+        foreach($f in $frameworkFiles) { [IO.File]::Copy((Join-Path $control $f),(Join-Path $root $f),$true) }
+    }
     $report = Join-Path $root $reportRel
     Ensure-Report $report $day
     $logDir = Join-Path $root "night-shift/logs/$day/$($started.ToString('HHmmss'))"
     [IO.Directory]::CreateDirectory($logDir) | Out-Null
     Add-Report $report '今晚做了什么' "- 启动：$($started.ToString('o'))；分支 $branch；站点只读；当日基线 $baseline。"
+    # Persist blocker/decision text before host/model work, including interrupted runs.
+    Update-TaskReport -Root $root -Report $report -Day $day | Out-Null
+    $queue = Join-Path $root 'night-shift/TASK_QUEUE.md'
+    $initialTasks = @(Read-Queue $queue)
+    $first = @($initialTasks | Where-Object Status -eq 'TODO' | Select-Object -First 1)
+    if ($OnlyTask -and (-not $first.Count -or $first[0].Id -ne $OnlyTask)) { throw "OnlyTask must equal first TODO; no task dispatched. Requested $OnlyTask" }
+    # No TODO needs only deterministic reporting: no desktop closure, help calls or model cost.
+    if (-not $first.Count) {
+        Add-Report $report '今晚做了什么' '- 本轮未领取生产任务：无 TODO；仅核对状态并生成阻塞升级报告，未新增 AI 测量或页面草稿。'
+        $exitCode=0
+    } else {
     # Host preflight occurs before task claim and before any codex exec. Failure preserves TODO.
     $desktop = Close-CodexDesktop -GraceSeconds 60 -Deadline $deadline.AddSeconds(-180)
     foreach ($collection in @('initialProcesses','remainingProcesses','lockOwners','dllChecks','initialDllChecks')) {
@@ -194,6 +210,7 @@ try {
         if ($OnlyTask) { break }
     }
     $exitCode = if ($allValid) { 0 } else { 2 }
+    } # dispatch only when TODO exists
 } catch {
     $exitCode=1
     $failure=$_.Exception.Message
@@ -219,8 +236,7 @@ try {
     if ($lock) {
         try {
             if (-not $unsafe -and $root -and $baseline -and $report -and $report.StartsWith($root) -and [datetime]::UtcNow -lt $deadline.AddSeconds(-20)) {
-                $snapshot = "| 任务 | 当前状态 |`n|---|---|`n" + (((Read-Queue (Join-Path $root 'night-shift/TASK_QUEUE.md')) | ForEach-Object { "| $($_.Id) | $($_.Status) |" }) -join "`n")
-                Add-Report $report '今晚做了什么' $snapshot
+                $receipt['taskReportEvidence']=Update-TaskReport -Root $root -Report $report -Day $day
                 $sha = Commit-Night $root $baseline $branch $deadline
                 Invoke-Git $root @('push','origin',"HEAD:refs/heads/$branch") $deadline | Out-Null
                 $remoteLine = Invoke-Git $root @('ls-remote','origin',"refs/heads/$branch") $deadline

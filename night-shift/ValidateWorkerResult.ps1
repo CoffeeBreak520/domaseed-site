@@ -2,8 +2,8 @@
     param([string]$ResultPath,[string]$Root,[string]$TaskId,[string]$QueueStatus)
     if (-not (Test-Path -LiteralPath $ResultPath -PathType Leaf)) { throw 'Structured final result missing.' }
     $answer=[IO.File]::ReadAllText($ResultPath) | ConvertFrom-Json
-    if ($answer.task_id -ne $TaskId -or $answer.status -ne $QueueStatus -or $answer.status -notin @('DONE','BLOCKED','NEEDS_FOUNDER')) { throw 'Structured result disagrees with claimed task/queue.' }
-    if ($answer.status -eq 'DONE') {
+    if ($answer.task_id -ne $TaskId -or $answer.status -ne $QueueStatus -or $answer.status -notin @('DONE','BLOCKED','NEEDS_FOUNDER','PARTIAL-MANUAL')) { throw 'Structured result disagrees with claimed task/queue.' }
+    if ($answer.status -in @('DONE','PARTIAL-MANUAL')) {
         $primary=0
         $rootPrefix=[IO.Path]::GetFullPath($Root).TrimEnd('\')+'\'
         $evidencePrefix=[IO.Path]::GetFullPath((Join-Path $Root 'night-shift/evidence')).TrimEnd('\')+'\'
@@ -14,7 +14,7 @@
             if ($path.StartsWith($evidencePrefix,[StringComparison]::OrdinalIgnoreCase)) { $primary++ }
             elseif ($e.Replace('\','/') -notmatch '^night-shift/(TASK_QUEUE\.md|reports/[^/]+\.md|drafts/.+)$') { throw 'Unsupported evidence attachment (logs/code cannot qualify).' }
         }
-        if ($primary -eq 0) { throw 'DONE requires an existing primary file under night-shift/evidence/.' }
+        if ($primary -eq 0) { throw 'DONE/PARTIAL-MANUAL requires an existing primary file under night-shift/evidence/.' }
     }
     return $answer
 }
