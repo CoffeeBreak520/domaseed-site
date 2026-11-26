@@ -90,7 +90,7 @@ function Set-QueueStatus([string]$Path,[string]$Id,[string]$Status,[string]$Resu
 }
 function Ensure-Report([string]$Path,[string]$Date) {
     if (-not (Test-Path -LiteralPath $Path)) {
-        Write-Utf8 $Path "# DOMASEED GEO 晨报 — $Date`n`n## 今晚做了什么`n`n## 改动清单`n`n## 待我决定`n`n## 失败与原因`n"
+        Write-Utf8 $Path "# DOMASEED GEO 晨报 — $Date`n`n## 今晚做了什么`n`n## 改动清单`n`n## 待我决定`n`n## 失败与原因`n`n## 本周需人工补测`n"
     }
 }
 function Add-Report([string]$Path,[string]$Section,[string]$Text) {

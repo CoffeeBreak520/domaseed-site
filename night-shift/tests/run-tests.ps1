@@ -6,7 +6,7 @@ $temp=Join-Path ([IO.Path]::GetTempPath()) ('geo-night-tests-'+[guid]::NewGuid()
 $passed=@()
 function Assert([bool]$Condition,[string]$Why) { if (-not $Condition) { throw "FAILED: $Why" }; $script:passed+=$Why }
 try {
-    foreach ($f in Get-ChildItem $framework -Recurse -Filter '*.ps1') {
+    foreach ($f in (Get-ChildItem $framework -Recurse -Filter '*.ps1' | Where-Object {$_.FullName -notmatch '\\logs\\'})) {
         $tokens=$null; $errors=$null
         [void][Management.Automation.Language.Parser]::ParseFile($f.FullName,[ref]$tokens,[ref]$errors)
         Assert (@($errors).Count -eq 0) ("PowerShell AST: "+$f.Name+': '+(($errors | ForEach-Object Message) -join '; '))

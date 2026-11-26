@@ -71,3 +71,5 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\night-shift\tests\run-test
 新增回归测试：`powershell -NoProfile -File .\night-shift\tests\desktop-preflight-tests.ps1`。安装器另要求保留原流程成功回执，并验证真实应用开启→自动关闭→DLL释放→GEO-001完成→远端提交一致，且当前脚本哈希与该次证明一致。示例进程或模拟运行不能替代实际验收。
 
 修正回归检查：`powershell -NoProfile -File night-shift/tests/task-reporting-tests.ps1`。当晚已存在的工作树会从已提交的 setup 分支刷新框架，不覆盖队列、证据或草稿。
+
+2026-11-26追加：GEO-004–006为已授权的新交付；每日报告新增【本周需人工补测】，按北京时间周一开始的一周去重，记录在evidence/manual-reminder-week-YYYYMMDD.json。不新建重复提醒任务，不使用付费API。提醒仅写入报告，无外发通知。
