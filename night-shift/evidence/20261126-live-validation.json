@@ -1,0 +1,12 @@
+{
+    "type":  "LIVE_NO_TODO_RUN_VALIDATION",
+    "started":  "2026-11-26T07:19:02.0875451Z",
+    "finished":  "2026-11-26T07:19:17.5390395Z",
+    "exitCode":  0,
+    "codexInvoked":  false,
+    "desktopTouched":  false,
+    "remoteVerified":  true,
+    "validatedRunCommit":  "e9693b701a1c2b5e495eb81f855053c678c16029",
+    "launcherSha256":  "514A5BEC8F743954806A787383CBFA7A462DF4611BE3F9CB7581058BB708F0D6",
+    "taskReportEvidence":  "night-shift/evidence/20261126-task-escalation.json"
+}
