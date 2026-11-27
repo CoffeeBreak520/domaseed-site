@@ -1,0 +1,12 @@
+{
+    "acceptance":  "CANDIDATE_STRATEGY_MAP_ONLY",
+    "frozenBaselineUnchanged":  true,
+    "websitePublished":  false,
+    "at":  "2026-11-27T01:56:00.2629847Z",
+    "output":  "night-shift/drafts/demand-first-discovery-20261127.md",
+    "sha256":  "A26A1E81FFF964660F4CDDBCB3F1C206A8AA3552756F45A76E9CB50055DAB3DB",
+    "task":  "GEO-007",
+    "paidApiUsed":  false,
+    "searchVolumeMeasured":  false,
+    "status":  "DONE"
+}
