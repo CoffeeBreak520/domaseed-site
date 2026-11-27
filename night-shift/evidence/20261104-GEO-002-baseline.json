@@ -1,0 +1,179 @@
+{
+    "task_id":  "GEO-002",
+    "status":  "BLOCKED",
+    "recorded_at_utc":  "2026-11-04T15:31:44.6630275Z",
+    "branch":  "night/geo-20261104",
+    "access_assessment":  {
+                              "available_ai_answer_channels":  [
+
+                                                               ],
+                              "available_web_search_channel":  "web__run search_query",
+                              "attempted_ai_engines":  [
+
+                                                       ],
+                              "reason":  "本会话工具目录未提供可调用的 ChatGPT、Gemini 或其他真实 AI 答答界面/API。网页检索不等价于这些引擎的真实回答；不得用当前模型自问自答补齐。故未提交任何引擎问题，也没有回答、引用或品牌提及结果。"
+                          },
+    "rows":  [
+                 {
+                     "id":  1,
+                     "question":  "What are some safe educational games for 10–13 year olds that parents can trust?",
+                     "engine":  null,
+                     "date":  null,
+                     "language":  "English",
+                     "region":  "United States",
+                     "actual_answer":  null,
+                     "citations":  [
+
+                                   ],
+                     "domaseed_mentioned":  null,
+                     "description":  null,
+                     "status":  "未测量：无真实AI回答渠道"
+                 },
+                 {
+                     "id":  2,
+                     "question":  "Which browser games help children aged 10–13 practice problem solving without requiring a download?",
+                     "engine":  null,
+                     "date":  null,
+                     "language":  "English",
+                     "region":  "United States",
+                     "actual_answer":  null,
+                     "citations":  [
+
+                                   ],
+                     "domaseed_mentioned":  null,
+                     "description":  null,
+                     "status":  "未测量：无真实AI回答渠道"
+                 },
+                 {
+                     "id":  3,
+                     "question":  "What free educational games are suitable for middle school kids to play at home?",
+                     "engine":  null,
+                     "date":  null,
+                     "language":  "English",
+                     "region":  "United States",
+                     "actual_answer":  null,
+                     "citations":  [
+
+                                   ],
+                     "domaseed_mentioned":  null,
+                     "description":  null,
+                     "status":  "未测量：无真实AI回答渠道"
+                 },
+                 {
+                     "id":  4,
+                     "question":  "How can I find a fun geography game for my 10–13 year old?",
+                     "engine":  null,
+                     "date":  null,
+                     "language":  "English",
+                     "region":  "United States",
+                     "actual_answer":  null,
+                     "citations":  [
+
+                                   ],
+                     "domaseed_mentioned":  null,
+                     "description":  null,
+                     "status":  "未测量：无真实AI回答渠道"
+                 },
+                 {
+                     "id":  5,
+                     "question":  "Are there educational games for kids that do not make exaggerated claims about improving grades?",
+                     "engine":  null,
+                     "date":  null,
+                     "language":  "English",
+                     "region":  "United States",
+                     "actual_answer":  null,
+                     "citations":  [
+
+                                   ],
+                     "domaseed_mentioned":  null,
+                     "description":  null,
+                     "status":  "未测量：无真实AI回答渠道"
+                 },
+                 {
+                     "id":  6,
+                     "question":  "有哪些适合10到13岁孩子、家长可以放心的教育类游戏？",
+                     "engine":  null,
+                     "date":  null,
+                     "language":  "简体中文",
+                     "region":  "中国大陆",
+                     "actual_answer":  null,
+                     "citations":  [
+
+                                   ],
+                     "domaseed_mentioned":  null,
+                     "description":  null,
+                     "status":  "未测量：无真实AI回答渠道"
+                 },
+                 {
+                     "id":  7,
+                     "question":  "有没有适合10到13岁孩子玩的免费网页益智游戏，不需要下载安装？",
+                     "engine":  null,
+                     "date":  null,
+                     "language":  "简体中文",
+                     "region":  "中国大陆",
+                     "actual_answer":  null,
+                     "citations":  [
+
+                                   ],
+                     "domaseed_mentioned":  null,
+                     "description":  null,
+                     "status":  "未测量：无真实AI回答渠道"
+                 },
+                 {
+                     "id":  8,
+                     "question":  "怎样为小学高年级或初中孩子挑选安全、有趣的地理游戏？",
+                     "engine":  null,
+                     "date":  null,
+                     "language":  "简体中文",
+                     "region":  "中国大陆",
+                     "actual_answer":  null,
+                     "citations":  [
+
+                                   ],
+                     "domaseed_mentioned":  null,
+                     "description":  null,
+                     "status":  "未测量：无真实AI回答渠道"
+                 },
+                 {
+                     "id":  9,
+                     "question":  "有哪些适合孩子在家玩的互动式学习游戏，家长如何判断内容是否可靠？",
+                     "engine":  null,
+                     "date":  null,
+                     "language":  "简体中文",
+                     "region":  "中国大陆",
+                     "actual_answer":  null,
+                     "citations":  [
+
+                                   ],
+                     "domaseed_mentioned":  null,
+                     "description":  null,
+                     "status":  "未测量：无真实AI回答渠道"
+                 },
+                 {
+                     "id":  10,
+                     "question":  "适合10到13岁孩子的英语词汇游戏有哪些，最好可以在浏览器里玩？",
+                     "engine":  null,
+                     "date":  null,
+                     "language":  "简体中文",
+                     "region":  "中国大陆",
+                     "actual_answer":  null,
+                     "citations":  [
+
+                                   ],
+                     "domaseed_mentioned":  null,
+                     "description":  null,
+                     "status":  "未测量：无真实AI回答渠道"
+                 }
+             ],
+    "evidence_capture":  {
+                             "command":  "PowerShell: construct question list and write task evidence JSON",
+                             "timestamp_utc":  "2026-11-04T15:31:44.6630275Z",
+                             "exit_code":  0
+                         },
+    "git_handoff":  {
+                        "command":  "git add -- night-shift/TASK_QUEUE.md night-shift/reports/morning-20261104.md night-shift/evidence/20261104-GEO-002-baseline.json",
+                        "attempted_at_utc":  "2026-11-04T15:32:37.7566331Z",
+                        "exit_code":  128,
+                        "result":  "Failed: unable to create worktree .git/index.lock; permission denied. Commit and push were not attempted."
+                    }
+}

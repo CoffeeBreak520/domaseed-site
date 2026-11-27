@@ -1,0 +1,223 @@
+{
+    "task":  "GEO-006",
+    "at":  "2026-11-26T07:54:59.0089378Z",
+    "scope":  "local index.html only; read-only",
+    "sourceSHA256":  "C394183EA660C9AB80718F0C9E483BCF14AC892F1C03BA7E9711D40A3B2BBE18",
+    "candidatePath":  "night-shift/drafts/schema-graph-candidate-20261126.json",
+    "currentGraph":  [
+                         {
+                             "@type":  "Organization",
+                             "@id":  "#optiverse",
+                             "name":  "Optiverse",
+                             "address":  {
+                                             "@type":  "PostalAddress",
+                                             "addressCountry":  "NZ"
+                                         }
+                         },
+                         {
+                             "@type":  "VideoGame",
+                             "name":  "DOMASEED",
+                             "description":  "DOMASEED is an in-development educational adventure game by Optiverse (New Zealand). It is a future-world adventure game for young players, currently in development and not yet publicly released.",
+                             "genre":  [
+                                           "Adventure",
+                                           "Educational"
+                                       ],
+                             "creator":  {
+                                             "@id":  "#optiverse"
+                                         }
+                         },
+                         {
+                             "@type":  "FAQPage",
+                             "mainEntity":  [
+                                                {
+                                                    "@type":  "Question",
+                                                    "name":  "What is DOMASEED?",
+                                                    "acceptedAnswer":  {
+                                                                           "@type":  "Answer",
+                                                                           "text":  "DOMASEED is an in-development educational adventure game from Optiverse, set in a connected future world. It is being designed as a real game first, with learning arising through exploration and meaningful actions rather than quizzes or compulsory lessons. DOMASEED is not a released product and is not related to agricultural or seed companies."
+                                                                       }
+                                                },
+                                                {
+                                                    "@type":  "Question",
+                                                    "name":  "What will my child do in it?",
+                                                    "acceptedAnswer":  {
+                                                                           "@type":  "Answer",
+                                                                           "text":  "Players explore, discover and experiment inside one connected civilization made up of four interdependent regions. The design aims to support varied exploration and meaningful actions."
+                                                                       }
+                                                },
+                                                {
+                                                    "@type":  "Question",
+                                                    "name":  "Is it a learning app?",
+                                                    "acceptedAnswer":  {
+                                                                           "@type":  "Answer",
+                                                                           "text":  "DOMASEED is designed as a game first. Discovery, immersion and fun matter for their own sake. Learning is meant to come up when it helps players do what they want to do, not through compulsory lessons."
+                                                                       }
+                                                },
+                                                {
+                                                    "@type":  "Question",
+                                                    "name":  "How does it use AI?",
+                                                    "acceptedAnswer":  {
+                                                                           "@type":  "Answer",
+                                                                           "text":  "In DOMASEED, AI is a tool that supports human judgment. It does not replace it."
+                                                                       }
+                                                },
+                                                {
+                                                    "@type":  "Question",
+                                                    "name":  "Who is it for?",
+                                                    "acceptedAnswer":  {
+                                                                           "@type":  "Answer",
+                                                                           "text":  "DOMASEED is being designed for young players, with an early focus on families with children around ages 10–13. This site is for parents and families."
+                                                                       }
+                                                },
+                                                {
+                                                    "@type":  "Question",
+                                                    "name":  "When can we play?",
+                                                    "acceptedAnswer":  {
+                                                                           "@type":  "Answer",
+                                                                           "text":  "DOMASEED is still in development. There is no public release, download, price or age rating yet."
+                                                                       }
+                                                },
+                                                {
+                                                    "@type":  "Question",
+                                                    "name":  "Is this site safe for my family?",
+                                                    "acceptedAnswer":  {
+                                                                           "@type":  "Answer",
+                                                                           "text":  "This site does not collect information from children. There is currently no public waitlist or sign-up form on this site. DOMASEED is still in development and has no public release."
+                                                                       }
+                                                }
+                                            ]
+                         }
+                     ],
+    "jsonldBlocks":  1,
+    "nodeTypes":  [
+                      "Organization",
+                      "VideoGame",
+                      "FAQPage"
+                  ],
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "check":  "json-parse"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "schema-context"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "duplicate-node-ids"
+                   },
+                   {
+                       "reference":  "#optiverse",
+                       "status":  "PASS",
+                       "check":  "game-creator-reference"
+                   },
+                   {
+                       "status":  "PASS",
+                       "visibleQuestions":  7,
+                       "schemaQuestions":  7,
+                       "check":  "faq-visible-jsonld-correspondence"
+                   }
+               ],
+    "faqPairs":  [
+                     {
+                         "question":  "What is DOMASEED?",
+                         "visibleMatch":  true
+                     },
+                     {
+                         "question":  "What will my child do in it?",
+                         "visibleMatch":  true
+                     },
+                     {
+                         "question":  "Is it a learning app?",
+                         "visibleMatch":  true
+                     },
+                     {
+                         "question":  "How does it use AI?",
+                         "visibleMatch":  true
+                     },
+                     {
+                         "question":  "Who is it for?",
+                         "visibleMatch":  true
+                     },
+                     {
+                         "question":  "When can we play?",
+                         "visibleMatch":  true
+                     },
+                     {
+                         "question":  "Is this site safe for my family?",
+                         "visibleMatch":  true
+                     }
+                 ],
+    "findings":  [
+                     {
+                         "priority":  "P1",
+                         "message":  "Add a stable game identity/canonical URL if approved; not a JSON syntax error or guaranteed ranking improvement.",
+                         "node":  "VideoGame",
+                         "field":  "@id",
+                         "kind":  "OPTIONAL_IMPROVEMENT"
+                     },
+                     {
+                         "priority":  "P1",
+                         "message":  "Add a stable game identity/canonical URL if approved; not a JSON syntax error or guaranteed ranking improvement.",
+                         "node":  "VideoGame",
+                         "field":  "url",
+                         "kind":  "OPTIONAL_IMPROVEMENT"
+                     },
+                     {
+                         "priority":  "P2",
+                         "message":  "Optional; add only when verified and appropriate. Do not invent profiles, image URLs, legal identity or claim this is required.",
+                         "node":  "Organization",
+                         "field":  "url",
+                         "kind":  "VERIFY_BEFORE_ADDING"
+                     },
+                     {
+                         "priority":  "P2",
+                         "message":  "Optional; add only when verified and appropriate. Do not invent profiles, image URLs, legal identity or claim this is required.",
+                         "node":  "Organization",
+                         "field":  "sameAs",
+                         "kind":  "VERIFY_BEFORE_ADDING"
+                     },
+                     {
+                         "priority":  "P2",
+                         "message":  "Optional; add only when verified and appropriate. Do not invent profiles, image URLs, legal identity or claim this is required.",
+                         "node":  "Organization",
+                         "field":  "logo",
+                         "kind":  "VERIFY_BEFORE_ADDING"
+                     },
+                     {
+                         "priority":  "P2",
+                         "message":  "Optional; add only when verified and appropriate. Do not invent profiles, image URLs, legal identity or claim this is required.",
+                         "node":  "Organization",
+                         "field":  "legalName",
+                         "kind":  "VERIFY_BEFORE_ADDING"
+                     },
+                     {
+                         "priority":  "P1",
+                         "message":  "Google documentation records FAQ rich results no longer appearing from 2026-05-07. Schema.org FAQPage still exists; retain only for accurate semantic description, not rich-result promises.",
+                         "node":  "FAQPage",
+                         "source":  "https://developers.google.com/search/updates",
+                         "kind":  "SEARCH_FEATURE_LIMITATION"
+                     },
+                     {
+                         "priority":  "P2",
+                         "message":  "Stable page identity and language can be added after page/route approval. No Chinese route has been approved.",
+                         "node":  "FAQPage",
+                         "field":  "@id/url/inLanguage",
+                         "kind":  "OPTIONAL_IMPROVEMENT"
+                     }
+                 ],
+    "limitations":  [
+                        "Targeted syntax, references and current FAQ-text checks, not a complete JSON-LD expansion or Schema.org conformance validation.",
+                        "No Rich Results Test, Search Console indexing inspection or AI-answer measurement was performed.",
+                        "Optional properties are not universal required fields.",
+                        "No changes to index.html, DNS, sitemap or publication."
+                    ],
+    "sources":  [
+                    "https://schema.org/VideoGame",
+                    "https://schema.org/FAQPage",
+                    "https://developers.google.com/search/docs/appearance/structured-data/organization",
+                    "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+                    "https://developers.google.com/search/updates"
+                ]
+}

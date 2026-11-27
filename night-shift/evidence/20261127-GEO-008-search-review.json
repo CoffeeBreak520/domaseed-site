@@ -1,0 +1,58 @@
+{
+  "task": "GEO-008",
+  "status": "DONE",
+  "observedAtUtc": "2026-11-27T15:30Z/2026-11-27T15:34Z",
+  "method": "Free public web search retrieval; English-language query strings. Search service did not expose a verifiable region setting, full result count, stable ranking, or query-level search volume.",
+  "queries": [
+    {
+      "group": 1,
+      "query": "\"educational adventure games for tweens\" OR \"educational games for 10-13 year olds\"",
+      "observedResults": [
+        { "title": "21 best learning games for tweens (10-13)", "url": "https://peabody.kids/resources/lists/best-learning-games-for-tweens", "observation": "Age-segmented recommendation/list intent." },
+        { "title": "NomiPlay: Educational Games for Kids and Teens", "url": "https://nomiplay.com/en-us", "observation": "Catalogue with age bands, categories and game descriptions." },
+        { "title": "21 Best Board Games for 10-13 Year Olds", "url": "https://noomreviews.com/board-games-for-10-to-13-year-olds/", "observation": "Adjacent but not digital-game intent; evidence of query ambiguity." }
+      ],
+      "intentAssessment": "Mostly discovery and age-fit screening for game options; close age/adventure variants belong on one guide. Results are not a representative or complete SERP sample."
+    },
+    {
+      "group": 2,
+      "queries": [
+        "\"learning games that don't feel like school\" for kids",
+        "\"learning through play\" tweens games parents"
+      ],
+      "observedResults": [
+        { "title": "The Best Science Learning Games That Actually Teach", "url": "https://screenwiseapp.com/guides/best-science-learning-games-for-kids", "observation": "Selection/explanation framing around game mechanics; page includes older-child examples." },
+        { "title": "Educational resources to use at home", "url": "https://education.nsw.gov.au/early-childhood-education/information-for-parents-and-carers/learning-from-home.html", "observation": "Government parent guidance on play; listed ideas focus mostly on younger children, so age transfer is limited." },
+        { "title": "Supporting Children’s Learning Through Play", "url": "https://childcare.gov/consumer-education/support-my-childs-health-development/supporting-childrens-learning-through-play", "observation": "General parent guidance about structured/unstructured play, not a tween game catalogue." }
+      ],
+      "intentAssessment": "Related explanatory intent: what playful learning can look like and how to choose activities that do not resemble drills. Keep as a substantial section in the age/game-selection guide; do not claim that fun proves learning."
+    },
+    {
+      "group": 3,
+      "queries": [
+        "\"meaningful screen time\" tweens active learning games parents",
+        "\"alternatives to passive screen time\" kids games"
+      ],
+      "observedResults": [
+        { "title": "Digital media: Promoting healthy screen use in school-aged children and adolescents", "url": "https://cps.ca/en/documents/position/digital-media", "observation": "Paediatric guidance emphasizes routines, age-appropriate content, educational/active/social use, and monitoring for interference." },
+        { "title": "Discovering Digital at Primary: Back to School guide for parents", "url": "https://www.internetmatters.org/wp-content/uploads/2025/08/Discovering-digital-at-primary-back-to-school-August-2025.pdf", "observation": "Family advice about purposeful use, co-op/skill-building options, alternatives, and shared rules." }
+      ],
+      "intentAssessment": "Family media choice/routine intent, distinct from finding an educational game. A separate practical guide has independent value."
+    }
+  ],
+  "limits": [
+    "Search-result observations are dated snapshots, not full result pages or exhaustive rankings.",
+    "The search service did not report locale, complete result counts, impressions, volume, traffic, conversion, or AI answers/citations.",
+    "No keyword volume, rank, demand size, user interview, product availability, or educational outcome was measured."
+  ],
+  "decision": {
+    "pageCandidates": 2,
+    "groupMapping": { "1": "candidate 1", "2": "candidate 1 section", "3": "candidate 2" },
+    "draft": "night-shift/drafts/GEO-008-content-entry-review-20261127.md",
+    "strategyDraftUpdated": "night-shift/drafts/demand-first-discovery-20261127.md",
+    "siteChanged": false,
+    "published": false,
+    "paidApiUsed": false,
+    "outboundContact": false
+  }
+}

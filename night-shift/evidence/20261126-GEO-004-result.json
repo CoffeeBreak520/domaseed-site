@@ -1,0 +1,9 @@
+{
+    "summary":  "已交付8项按影响排序的修复/核验清单，含页面、证据、难度和验收；尚未执行网站修复。",
+    "status":  "DONE",
+    "task_id":  "GEO-004",
+    "evidence":  [
+                     "night-shift/evidence/20261126-GEO-004-delivery.json",
+                     "night-shift/drafts/website-repair-backlog-20261126.md"
+                 ]
+}

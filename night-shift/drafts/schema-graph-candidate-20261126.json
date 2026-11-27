@@ -1,0 +1,92 @@
+{
+    "@context":  "https://schema.org",
+    "@graph":  [
+                   {
+                       "@type":  "Organization",
+                       "name":  "Optiverse",
+                       "address":  {
+                                       "@type":  "PostalAddress",
+                                       "addressCountry":  "NZ"
+                                   },
+                       "@id":  "https://domaseed.com/#optiverse"
+                   },
+                   {
+                       "@type":  "VideoGame",
+                       "name":  "DOMASEED",
+                       "description":  "DOMASEED is an in-development educational adventure game by Optiverse (New Zealand). It is a future-world adventure game for young players, currently in development and not yet publicly released.",
+                       "genre":  [
+                                     "Adventure",
+                                     "Educational"
+                                 ],
+                       "creator":  {
+                                       "@id":  "https://domaseed.com/#optiverse"
+                                   },
+                       "@id":  "https://domaseed.com/#domaseed",
+                       "url":  "https://domaseed.com/"
+                   },
+                   {
+                       "@type":  "FAQPage",
+                       "mainEntity":  [
+                                          {
+                                              "@type":  "Question",
+                                              "name":  "What is DOMASEED?",
+                                              "acceptedAnswer":  {
+                                                                     "@type":  "Answer",
+                                                                     "text":  "DOMASEED is an in-development educational adventure game from Optiverse, set in a connected future world. It is being designed as a real game first, with learning arising through exploration and meaningful actions rather than quizzes or compulsory lessons. DOMASEED is not a released product and is not related to agricultural or seed companies."
+                                                                 }
+                                          },
+                                          {
+                                              "@type":  "Question",
+                                              "name":  "What will my child do in it?",
+                                              "acceptedAnswer":  {
+                                                                     "@type":  "Answer",
+                                                                     "text":  "Players explore, discover and experiment inside one connected civilization made up of four interdependent regions. The design aims to support varied exploration and meaningful actions."
+                                                                 }
+                                          },
+                                          {
+                                              "@type":  "Question",
+                                              "name":  "Is it a learning app?",
+                                              "acceptedAnswer":  {
+                                                                     "@type":  "Answer",
+                                                                     "text":  "DOMASEED is designed as a game first. Discovery, immersion and fun matter for their own sake. Learning is meant to come up when it helps players do what they want to do, not through compulsory lessons."
+                                                                 }
+                                          },
+                                          {
+                                              "@type":  "Question",
+                                              "name":  "How does it use AI?",
+                                              "acceptedAnswer":  {
+                                                                     "@type":  "Answer",
+                                                                     "text":  "In DOMASEED, AI is a tool that supports human judgment. It does not replace it."
+                                                                 }
+                                          },
+                                          {
+                                              "@type":  "Question",
+                                              "name":  "Who is it for?",
+                                              "acceptedAnswer":  {
+                                                                     "@type":  "Answer",
+                                                                     "text":  "DOMASEED is being designed for young players, with an early focus on families with children around ages 10–13. This site is for parents and families."
+                                                                 }
+                                          },
+                                          {
+                                              "@type":  "Question",
+                                              "name":  "When can we play?",
+                                              "acceptedAnswer":  {
+                                                                     "@type":  "Answer",
+                                                                     "text":  "DOMASEED is still in development. There is no public release, download, price or age rating yet."
+                                                                 }
+                                          },
+                                          {
+                                              "@type":  "Question",
+                                              "name":  "Is this site safe for my family?",
+                                              "acceptedAnswer":  {
+                                                                     "@type":  "Answer",
+                                                                     "text":  "This site does not collect information from children. There is currently no public waitlist or sign-up form on this site. DOMASEED is still in development and has no public release."
+                                                                 }
+                                          }
+                                      ],
+                       "@id":  "https://domaseed.com/#webpage",
+                       "url":  "https://domaseed.com/",
+                       "inLanguage":  "en"
+                   }
+               ]
+}

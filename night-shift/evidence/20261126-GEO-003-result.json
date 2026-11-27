@@ -1,0 +1,10 @@
+{
+    "summary":  "Two sourced bilingual drafts; await measurement review",
+    "status":  "DONE",
+    "task_id":  "GEO-003",
+    "evidence":  [
+                     "night-shift/evidence/20261126-GEO-003-draft-review.json",
+                     "night-shift/drafts/parent-faq-en-zh-20261126.md",
+                     "night-shift/drafts/what-is-domaseed-20261126.md"
+                 ]
+}

@@ -1,0 +1,13 @@
+{
+    "at":  "2026-11-26T07:54:53.0956279Z",
+    "passed":  7,
+    "checks":  [
+                   "Valid site snapshot checks pass: ",
+                   "Syntax, references and visible FAQ checks recorded",
+                   "Candidate graph keeps exactly one game with a resolvable creator identity",
+                   "Mismatch fixture changes only the visible question",
+                   "Visible/schema mismatch cannot pass",
+                   "Inspection never modifies source even on failure",
+                   "Malformed JSON is recorded as a failing check"
+               ]
+}
