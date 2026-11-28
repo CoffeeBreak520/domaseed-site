@@ -1,0 +1,68 @@
+{
+  "task_id": "GEO-016",
+  "timestamp_utc": "2026-11-28T15:32:35Z",
+  "branch": "night/geo-20261128",
+  "site_read_only": true,
+  "candidate_root": "night-shift/drafts/site-candidate-20261128/",
+  "method": "Independent read-only source review of the three candidate HTML pages. Checked navigation and focus CSS, semantic landmarks and heading levels, table headers and narrow-width overflow CSS. No browser rendering or interaction was performed.",
+  "browser_availability": {
+    "probe": "Get-Command chrome, msedge, chromium, chromium-browser -ErrorAction SilentlyContinue",
+    "result": "No executable was returned for these browser command names.",
+    "actual_viewport_measurements": false,
+    "keyboard_interaction": false,
+    "narrow_screen": "NOT TESTED",
+    "zoom_200_percent": "NOT TESTED"
+  },
+  "pages": [
+    {
+      "path": "night-shift/drafts/site-candidate-20261128/index.html",
+      "observations": [
+        "One nav landmark has aria-label Main navigation; links are native anchors and nav links wrap in CSS.",
+        "a:focus-visible defines a 3px accent outline for links.",
+        "No skip link is present before the repeated navigation.",
+        "Heading sequence is h1 DOMASEED, section h2 headings, then FAQ h3 questions; no table is present.",
+        "At max-width 700px CSS changes section layout to block and reduces page padding; actual 200% zoom reflow was not measured."
+      ]
+    },
+    {
+      "path": "night-shift/drafts/site-candidate-20261128/development/index.html",
+      "observations": [
+        "One nav landmark has aria-label Main navigation; links are native anchors and nav flex-wrap is enabled.",
+        "a:focus-visible defines a 3px accent outline for links.",
+        "No skip link is present before the repeated navigation.",
+        "One h1 is followed by section h2 headings. The comparison table has thead, tbody, scope=col column headers and scope=row row headers.",
+        "The table is inside .table-wrap with overflow-x:auto; horizontal scrolling and screen magnifier usability were not tested in a browser."
+      ]
+    },
+    {
+      "path": "night-shift/drafts/site-candidate-20261128/parents/choosing-adventure-thinking-games/index.html",
+      "observations": [
+        "One nav landmark has aria-label Main navigation; links are native anchors and nav flex-wrap is enabled.",
+        "a:focus-visible defines a 3px accent outline for links.",
+        "No skip link is present before the repeated navigation.",
+        "One h1 is followed by h2 section headings. Comparison sheet and further reading use semantic unordered lists; no table is present.",
+        "Responsive CSS reduces horizontal padding at max-width 480px; actual narrow viewport and 200% zoom were not measured."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "location": "All three pages, body > main > nav, before header",
+      "issue": "No skip-to-main-content link is provided.",
+      "impact": "Keyboard and switch users must traverse the repeated navigation on each page before reaching page content.",
+      "recommendation": "Add a first-focusable skip link targeting a main element with a stable id; reveal it on focus and verify keyboard focus visibility."
+    },
+    {
+      "location": "development/index.html and parents/choosing-adventure-thinking-games/index.html, comparison table .table-wrap",
+      "issue": "The wide comparison table uses horizontal scrolling at constrained widths.",
+      "impact": "At narrow viewport or high zoom, users may need two-dimensional navigation and may lose row/column context; source inspection cannot establish whether it remains usable.",
+      "recommendation": "Test at 320 CSS px and 200% zoom with keyboard and screen magnification. If scanning is difficult, provide a stacked alternative or otherwise preserve clear row and column context."
+    }
+  ],
+  "result": "PARTIAL-MANUAL",
+  "limitations": [
+    "This is source inspection, not a browser accessibility audit or conformance claim.",
+    "No actual keyboard focus traversal, screen reader, narrow-screen viewport or 200% zoom test was run.",
+    "No online page was changed or published."
+  ]
+}

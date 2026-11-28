@@ -1,0 +1,10 @@
+{
+    "task":  "GEO-016",
+    "at":  "2026-11-28T15:34:27.0543915Z",
+    "status":  "BLOCKED",
+    "processExit":  0,
+    "timeout":  false,
+    "reason":  "Referenced output missing/outside workspace.",
+    "rawLogs":  "night-shift/logs (local, ignored)",
+    "verifiedCompletion":  false
+}

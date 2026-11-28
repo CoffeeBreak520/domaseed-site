@@ -1,0 +1,11 @@
+{
+    "summary":  "已完成5项当前源码检查，7条FAQ可见问答与JSON-LD一致；候选图校验及官方功能限制说明已交付，未应用到网站。",
+    "status":  "DONE",
+    "task_id":  "GEO-006",
+    "evidence":  [
+                     "night-shift/evidence/20261126-GEO-006-delivery.json",
+                     "night-shift/drafts/schema-review-20261126.md",
+                     "night-shift/drafts/schema-graph-candidate-20261126.json",
+                     "night-shift/evidence/20261126-GEO-006-schema-audit.json"
+                 ]
+}
