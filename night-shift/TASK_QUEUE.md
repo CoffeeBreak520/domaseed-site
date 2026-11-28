@@ -134,12 +134,13 @@
 结果: Referenced output missing/outside workspace. Evidence: night-shift/evidence/20261128-153002-GEO-016-launcher-1.json
 
 ## GEO-017
-状态: TODO
+状态: DONE
 目标: 核实待审指南的外部参考链接与内容归属，检查是否存在误引。
 验收标准:
 - 只读候选指南的两条官方参考链接，记录实际URL、可读状态和是否支持相关选择标准；网络失败不等于对方页面不存在。
 - 区分官方标准、家长经验和本指南原创建议；不添加虚构背书或暗示被推荐。
 - 只写drafts/evidence；无可靠免费渠道时如实标未核实；不调用付费API或批量扩充FAQ。
+结果: 两条链接均可读取；ESRB支持有限的评级/家长核对提示，Common Sense Media现有页面为家长选游戏指南，不是其评分方法说明，现有链接标签与页面内容不匹配。检查完成，建议仅在后续编辑审核中修正标签；未改候选页面。证据：night-shift/evidence/20261128-GEO-017-reference-review.json；审查稿：night-shift/drafts/GEO-017-reference-review-20261128.md。
 
 ## GEO-018
 状态: TODO

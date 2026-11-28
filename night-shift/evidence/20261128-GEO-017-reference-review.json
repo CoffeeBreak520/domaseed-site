@@ -1,0 +1,46 @@
+{
+  "taskId": "GEO-017",
+  "recordedAtUtc": "2026-11-28T15:35:21Z",
+  "branch": "night/geo-20261128",
+  "target": "night-shift/drafts/site-candidate-20261128/parents/choosing-adventure-thinking-games/index.html",
+  "localInspection": {
+    "command": "Get-Content -Raw -Encoding utf8 <candidate index.html>; rg -n -i 'https?://' <candidate index.html>",
+    "exitCode": 0,
+    "result": "Found exactly two external Further reading links, to ESRB and Common Sense Media; no other external reference links in the candidate guide."
+  },
+  "webChecks": {
+    "method": "Opened each exact URL using the web retrieval tool; this records page content as retrieved, not an independent HTTP status-code probe.",
+    "attempts": 1,
+    "failures": 0,
+    "results": [
+      {
+        "labelInGuide": "ESRB: selecting appropriate video games",
+        "url": "https://www.esrb.org/tools-for-parents/family-gaming-guide/selecting-appropriate-video-games/",
+        "retrievedTitle": "Selecting Appropriate Video Games",
+        "readable": true,
+        "retrievalDate": "2026-11-28",
+        "supports": ["ESRB age rating categories, content descriptors and interactive elements are factors parents may inspect.", "The page says ratings are one factor and suggests additional approaches such as trying a game, considering genre, gameplay videos and reviews."],
+        "doesNotSupport": ["The guide's full checklist about gameplay loops, challenge recovery, saving/stopping, costs, devices or project development status."],
+        "assessment": "Accurately relevant as a limited further-reading source for rating information and some parent selection considerations; it does not endorse the DOMASEED guide or substantiate all of its checklist."
+      },
+      {
+        "labelInGuide": "Common Sense Media: how games are reviewed",
+        "url": "https://www.commonsensemedia.org/about-us/our-mission/about-our-ratings/games",
+        "retrievedTitle": "How to Choose the Right Video Games for Your Kids",
+        "readable": true,
+        "retrievalDate": "2026-11-28",
+        "supports": ["The page discusses family-specific considerations including age/developmental fit, child interests, quality, learning potential, ease of play, content, privacy and safety."],
+        "doesNotSupport": ["The anchor's specific claim that this page explains how Common Sense Media reviews or rates games; the retrieved page is a parent choice guide and does not describe reviewer methodology."],
+        "assessment": "Relevant to parent choice considerations, but the current link label overstates/misattributes the page content. This is an editorial attribution issue, not evidence that the source endorses this guide."
+      }
+    ]
+  },
+  "attributionBoundary": {
+    "officialSourceStandards": "ESRB describes its own rating categories, content descriptors and interactive elements; Common Sense Media describes its own parent guidance and evaluation criteria.",
+    "parentExperience": "The guide's advice to compare a child's interests with household preferences is presented as a family decision prompt, not attributed to either organization as a formal standard.",
+    "originalGuideSuggestions": "The repeated-activity prompt, challenge recovery, saving/stopping fit, device compatibility, full-cost check, and development-status distinctions are original guide organization/questions unless explicitly connected to a source above.",
+    "noEndorsement": "Neither page states that it endorses DOMASEED, this guide, or its recommendations."
+  },
+  "overall": "Review completed. One link-label attribution correction is recommended; candidate site file was not modified.",
+  "evidenceMethod": "Actual retrieved page content was reviewed; no generated answer was represented as a search or source result."
+}
