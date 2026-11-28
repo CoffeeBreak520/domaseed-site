@@ -1,0 +1,40 @@
+{
+  "task_id": "GEO-018",
+  "status": "DONE",
+  "recorded_at": "2026-11-28",
+  "inspection_completed_at": "2026-11-28T15:40:02Z",
+  "branch": "night/geo-20261128",
+  "scope": "Read-only inspection of repository structure, candidate HTML, candidate README, and current report; wrote only GEO-018 runbook, evidence, queue result, and morning report under night-shift.",
+  "commands": [
+    {
+      "command": "git status --short --branch",
+      "exit_code": 0,
+      "result": "Branch night/geo-20261128; working tree initially clean."
+    },
+    {
+      "command": "git ls-tree -r --name-only HEAD",
+      "exit_code": 0,
+      "result": "Repository root contains index.html, robots.txt, sitemap.xml, CNAME; no .github workflow/build config present."
+    },
+    {
+      "command": "git log -5 --oneline --decorate; git remote -v",
+      "exit_code": 0,
+      "result": "HEAD is night/geo-20261128; remote URL identifies GitHub repository. Remote Pages settings/deployment behavior not verified."
+    },
+    {
+      "command": "Get-Content candidate README and three candidate HTML files; inspect current root index.html; Get-FileHash candidate page HTML -Algorithm SHA256",
+      "exit_code": 0,
+      "result": "Three static HTML candidates read; README states drafts are not deployment source. SHA-256 snapshot: homepage 0F141F2C6E19921A89D3EF3BF6D55C76DD1E14FD74B33755046C0065BADEC3DC; development D9E45BE9522EEE494C527E9A1DC1CECA075279F8A7FA268AE3513C63AEFC90AA; parent guide B1910FDBA17214A8121DAA72356EAFAD7D813655A86F062D45C2FF6B8039BE76."
+    }
+  ],
+  "findings": [
+    "No repository-local build or deployment workflow was found; hosting configuration cannot be inferred from this checkout.",
+    "Proposed production targets are index.html, development/index.html, parents/choosing-adventure-thinking-games/index.html, and conditionally sitemap.xml.",
+    "Candidate root page retains the founder story; candidate pages contain no form, tracking script, or media assets.",
+    "GEO-016 keyboard/narrow-screen/200% browser checks remain unmeasured; GEO-017 recommended reference-label correction remains unapplied.",
+    "No production file, deployment, index submission, main merge, or Git push was performed."
+  ],
+  "git_delivery": "Commit/push not attempted: .git resolves outside the writable night-shift subtree and is read-only under this task's sandbox boundary; no approval or permission escalation requested.",
+  "deliverable": "night-shift/drafts/GEO-018-release-rollback-runbook-20261128.md",
+  "approval": "Founder approval of exact candidate package and paths is pending; runbook does not authorize release."
+}
