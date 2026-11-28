@@ -1,5 +1,5 @@
 {
-    "at":  "2026-11-27T15:37:05.5507470Z",
+    "at":  "2026-11-28T02:18:08.3081562Z",
     "day":  "20261127",
     "counting":  "one observation per dated report; missing status breaks streak; same-night reruns do not increment",
     "tasks":  [
@@ -622,6 +622,270 @@
                   {
                       "status":  "DONE",
                       "task":  "GEO-008",
+                      "history":  [
+                                      {
+                                          "day":  "20261104",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261105",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261107",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261108",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261109",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261110",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261112",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261113",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261114",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261115",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261116",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261117",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261118",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261119",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261120",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261121",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261122",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261123",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261126",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261127",
+                                          "status":  "DONE"
+                                      }
+                                  ],
+                      "escalated":  false,
+                      "blockedNights":  0
+                  },
+                  {
+                      "status":  "BLOCKED",
+                      "task":  "GEO-010",
+                      "history":  [
+                                      {
+                                          "day":  "20261104",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261105",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261107",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261108",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261109",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261110",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261112",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261113",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261114",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261115",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261116",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261117",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261118",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261119",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261120",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261121",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261122",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261123",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261126",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261127",
+                                          "status":  "BLOCKED"
+                                      }
+                                  ],
+                      "escalated":  false,
+                      "blockedNights":  1
+                  },
+                  {
+                      "status":  "DONE",
+                      "task":  "GEO-011",
+                      "history":  [
+                                      {
+                                          "day":  "20261104",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261105",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261107",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261108",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261109",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261110",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261112",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261113",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261114",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261115",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261116",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261117",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261118",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261119",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261120",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261121",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261122",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261123",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261126",
+                                          "status":  "UNKNOWN"
+                                      },
+                                      {
+                                          "day":  "20261127",
+                                          "status":  "DONE"
+                                      }
+                                  ],
+                      "escalated":  false,
+                      "blockedNights":  0
+                  },
+                  {
+                      "status":  "DONE",
+                      "task":  "GEO-012",
                       "history":  [
                                       {
                                           "day":  "20261104",

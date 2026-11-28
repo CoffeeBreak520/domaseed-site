@@ -86,3 +86,21 @@
 - 只在night-shift/drafts写稿；报告不代表发布批准。不得调用付费API、改官网、改冻结历史题库、外发或发布。
 - 无免费联网渠道时仍可起草，但明确把搜索意图验证保留为未完成，不伪装实测。
 结果: 完成三组需求的免费公开搜索观察及近义词意图比较；“educational adventure games for tweens / educational games for 10–13”与“learning games that don’t feel like school / learning through play”建议合并到一篇选择指南，避免变体拆页；meaningful screen time 单独形成家庭选择指南。交付两篇英文入口审核稿，均明确开发中状态与无效果承诺，未发布。搜索仅为公开检索快照，工具未显示地区化设置、完整排名或搜索量，不能据此定量或宣称排名。证据：night-shift/evidence/20261127-GEO-008-search-review.json；草稿：night-shift/drafts/GEO-008-content-entry-review-20261127.md。
+
+## GEO-010
+状态: BLOCKED
+目标: 建立有来源的产品状态事实库，区分已实现、原型、设计中及未验证。
+阻塞原因: 初版事实库已覆盖已读材料；当前可公开原型及最新实现状态仍未核验，不能把历史素材当成当前产品证明。
+已尝试: 检查既有事实表及历史交付证据；保存原始来源快照并记录未验证项。内部研究保存在私有研究仓库，未复制到公开网站仓库。
+所需决定: 先审阅候选素材后再决定公开范围；主市场待创始人选择。不得对未知功能作公开承诺。
+结果: 初版事实库已交付，最新产品证据与公开素材核验未完成；状态保留BLOCKED。交接证据：night-shift/evidence/20261128-evidence-validation-handoff.json。
+
+## GEO-011
+状态: DONE
+目标: 整理20–30个需求查询及手动基线记录表，不调用付费API。
+结果: 已交付24个精确候选查询、空白逐次记录CSV及分渠道/重复采样说明；所有查询NOT_RUN，主市场UNDECIDED。这是记录工具交付，不是测量完成。证据：night-shift/evidence/20261128-evidence-validation-handoff.json。
+
+## GEO-012
+状态: DONE
+目标: 交付家长访谈提纲与假门落地页文案审核稿，不发布、不邀约、不付费。
+结果: 已交付行为访谈问题、记录框架及两种仅改变需求角度的落地页文案；均待创始人审核，未实施招募或测试。证据：night-shift/evidence/20261128-evidence-validation-handoff.json。
