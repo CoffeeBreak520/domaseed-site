@@ -1,5 +1,5 @@
 {
-    "at":  "2026-11-28T15:30:10.4379720Z",
+    "at":  "2026-11-28T15:40:24.8649326Z",
     "day":  "20261128",
     "counting":  "one observation per dated report; missing status breaks streak; same-night reruns do not increment",
     "tasks":  [
@@ -1292,7 +1292,7 @@
                       "blockedNights":  2
                   },
                   {
-                      "status":  "TODO",
+                      "status":  "BLOCKED",
                       "task":  "GEO-016",
                       "history":  [
                                       {
@@ -1377,14 +1377,14 @@
                                       },
                                       {
                                           "day":  "20261128",
-                                          "status":  "TODO"
+                                          "status":  "BLOCKED"
                                       }
                                   ],
                       "escalated":  false,
-                      "blockedNights":  0
+                      "blockedNights":  1
                   },
                   {
-                      "status":  "TODO",
+                      "status":  "DONE",
                       "task":  "GEO-017",
                       "history":  [
                                       {
@@ -1469,14 +1469,14 @@
                                       },
                                       {
                                           "day":  "20261128",
-                                          "status":  "TODO"
+                                          "status":  "DONE"
                                       }
                                   ],
                       "escalated":  false,
                       "blockedNights":  0
                   },
                   {
-                      "status":  "TODO",
+                      "status":  "DONE",
                       "task":  "GEO-018",
                       "history":  [
                                       {
@@ -1561,7 +1561,7 @@
                                       },
                                       {
                                           "day":  "20261128",
-                                          "status":  "TODO"
+                                          "status":  "DONE"
                                       }
                                   ],
                       "escalated":  false,
